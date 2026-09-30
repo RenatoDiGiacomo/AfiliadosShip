@@ -30,7 +30,7 @@ Depois do cadastro, guarde os códigos nas variáveis de ambiente (`.env.local` 
 
 ## 2. Escolher o produto
 
-- **Comece com 10 a 20 produtos** de um único nicho (o site já vem com home office como exemplo).
+- **Comece com 10 a 20 produtos**, concentrados em 2 ou 3 categorias (por exemplo Casa e cozinha, Tecnologia e Utilidades). Poucas categorias com vários produtos cada deixam o site mais forte do que muitas categorias com 1 produto.
 - Prefira produtos com muitas avaliações boas, em estoque e de lojas confiáveis/oficiais.
 - Veja a **comissão da categoria** no programa: varia bastante, e categorias de comissão baixa rendem pouco.
 - Pense em **guias** ("melhores X para Y"): 3 a 5 produtos que respondem a uma busca real do Google.
@@ -76,7 +76,7 @@ Abra `catalog/br.csv` (Brasil) ou `catalog/us.csv` (EUA) no Excel ou Google Plan
 | `slug` | não | Nome na URL (`teclado-mecanico-x`). Vazio = gerado do título |
 | `titulo` | sim | Nome curto do produto |
 | `plataforma` | sim | BR: `mercadolivre` ou `shopee`. US: `amazon` ou `ebay` |
-| `categoria` | sim | `peripherals`, `ergonomics`, `video-audio`, `lighting`, `organization`, `accessories` (ou o nome exibido) |
+| `categoria` | sim | `home`, `tech`, `beauty`, `fitness`, `fashion`, `pets`, `kids`, `gadgets` (ou o nome exibido) |
 | `link_produto` | sim | URL limpa da página do produto |
 | `link_afiliado` | ML/Shopee: sim | Link gerado no painel. Amazon/eBay: deixe vazio |
 | `imagem` | não | URL da foto principal (sua) |
@@ -85,7 +85,7 @@ Abra `catalog/br.csv` (Brasil) ou `catalog/us.csv` (EUA) no Excel ou Google Plan
 | `positivos` | recomendado | Pontos fortes, separados por `\|` |
 | `atencao` | recomendado | Pontos de atenção, separados por `\|` |
 | `preco` | não | Só BR, preço de referência (ex.: `149,90`). Ignorado nos EUA |
-| `guias` | não | Slugs dos guias onde o produto entra, separados por `\|` (ex.: `home-office-barato`) |
+| `guias` | não | Slugs dos guias onde o produto entra, separados por `\|` (ex.: `achados-da-semana`, `utilidades-do-dia-a-dia`; nos EUA: `weekly-finds`, `everyday-gadgets`) |
 
 Enquanto `catalog/br.csv` ou `catalog/us.csv` tiver só o cabeçalho, o site mostra os **produtos de exemplo**. Assim que tiver pelo menos 1 produto, os exemplos daquele mercado somem.
 

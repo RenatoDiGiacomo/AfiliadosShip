@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ market: s
     metadataBase: new URL(SITE_URL),
     title: { default: t.siteName, template: `%s | ${t.siteName}` },
     description: t.tagline,
+    verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
     openGraph: { siteName: t.siteName, locale: MARKETS[market].lang.replace("-", "_"), type: "website" },
   };
 }

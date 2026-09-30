@@ -2,37 +2,29 @@ import catalog from "./catalog.us.json";
 import { buildSamples, type SampleRow } from "./sample";
 import type { Product } from "./types";
 
-// ATENÇÃO: catálogo de EXEMPLO (nicho home office). Os links são buscas nas lojas.
-// Antes de publicar: troque por produtos reais (Amazon.com / eBay.com) com fotos e textos originais.
+// ATENÇÃO: catálogo de EXEMPLO. Os links são buscas nas lojas e os textos são genéricos.
+// Quando catalog.us.json tiver produtos reais (npm run import), os exemplos saem do ar.
 // Não exiba preços de Amazon/eBay como se fossem em tempo real.
 const CATEGORY_DEFAULTS = {
-  peripherals: { name: "Peripherals", pros: ["Makes daily use more comfortable", "Wide range of price points"], cons: ["Quality varies: compare models", "Check compatibility with your setup"] },
-  ergonomics: { name: "Ergonomics", pros: ["Helps you keep better posture", "Useful for long work days"], cons: ["Takes some tuning to find your position", "Very cheap models can be unstable"] },
-  "video-audio": { name: "Video & Audio", pros: ["Makes meetings and classes clearer", "Simple plug-and-play setup"], cons: ["Quality drops in low light or noise", "Check compatibility with your system"] },
-  lighting: { name: "Lighting", pros: ["Reduces eye strain", "Low power use"], cons: ["Cheap models may flicker", "Takes desk space"] },
-  organization: { name: "Organization", pros: ["A cleaner, more functional desk", "Easy to set up"], cons: ["Measure your space first", "Finish varies between brands"] },
-  accessories: { name: "Accessories", pros: ["Solves small everyday problems", "Low cost"], cons: ["Prefer well-reviewed brands", "Beware of uncertified products"] },
+  home: { name: "Home & Kitchen", pros: ["Makes daily routines easier", "Wide range of prices"], cons: ["Measure your space first", "Finish varies between brands"] },
+  tech: { name: "Tech", pros: ["Convenient for everyday use", "Many brands to choose from"], cons: ["Check compatibility with your device", "Quality varies: read the reviews"] },
+  beauty: { name: "Beauty", pros: ["Helps you organize and care for your items", "Low cost"], cons: ["Check the seller's reputation", "Check ingredients and expiry where relevant"] },
+  fitness: { name: "Fitness", pros: ["Lets you work out at home", "Easy to store"], cons: ["Pick the right resistance level", "Cheap models may wear out fast"] },
+  fashion: { name: "Fashion & Accessories", pros: ["Style and convenience", "Options for many tastes"], cons: ["Check the size chart", "Color may differ from the photo"] },
+  pets: { name: "Pets", pros: ["More comfort and care for your pet", "Easy to use"], cons: ["Choose the right size for your pet", "Watch how your pet adapts"] },
+  kids: { name: "Kids", pros: ["Encourages play", "A good gift option"], cons: ["Check the recommended age range", "Check the product's safety certification"] },
+  gadgets: { name: "Gadgets", pros: ["Solves small everyday problems", "Low cost"], cons: ["Prefer well-reviewed sellers", "Check what is included in the box"] },
 };
 
 const rows: SampleRow[] = [
-  { slug: "budget-mechanical-keyboard", categoryId: "peripherals", platform: "amazon", title: "Budget mechanical keyboard", keyword: "budget mechanical keyboard", summary: "What to look for in a first mechanical keyboard for a home office." },
-  { slug: "vertical-ergonomic-mouse", categoryId: "peripherals", platform: "ebay", title: "Vertical ergonomic mouse", keyword: "vertical ergonomic mouse", summary: "An option for people who spend long hours at the computer and feel wrist strain." },
-  { slug: "wireless-silent-mouse", categoryId: "peripherals", platform: "amazon", title: "Wireless silent mouse", keyword: "wireless silent mouse", summary: "Quiet clicks and no cable for a cleaner desk." },
-  { slug: "laptop-stand", categoryId: "ergonomics", platform: "amazon", title: "Adjustable laptop stand", keyword: "adjustable laptop stand", summary: "Raises your screen to eye level and improves posture while working from home." },
-  { slug: "wrist-rest", categoryId: "ergonomics", platform: "ebay", title: "Keyboard wrist rest", keyword: "keyboard wrist rest", summary: "Makes long typing sessions more comfortable." },
-  { slug: "footrest", categoryId: "ergonomics", platform: "amazon", title: "Adjustable under-desk footrest", keyword: "under desk footrest", summary: "Helps keep your legs in a comfortable position while seated." },
-  { slug: "1080p-webcam", categoryId: "video-audio", platform: "ebay", title: "1080p webcam", keyword: "1080p webcam", summary: "Sharp video for meetings and classes without a pro camera." },
-  { slug: "usb-headset", categoryId: "video-audio", platform: "amazon", title: "USB headset with microphone", keyword: "usb headset microphone", summary: "Clear call audio and basic noise isolation." },
-  { slug: "usb-microphone", categoryId: "video-audio", platform: "ebay", title: "USB microphone for meetings", keyword: "usb microphone", summary: "A cleaner voice than your laptop's built-in mic." },
-  { slug: "led-desk-lamp", categoryId: "lighting", platform: "amazon", title: "LED desk lamp", keyword: "led desk lamp", summary: "Lighting that is easier on your eyes, with adjustable brightness and color." },
-  { slug: "ring-light", categoryId: "lighting", platform: "ebay", title: "Desktop ring light", keyword: "desktop ring light", summary: "Even front lighting to look good on video calls." },
-  { slug: "led-strip", categoryId: "lighting", platform: "amazon", title: "LED strip lights for desk", keyword: "led strip lights desk", summary: "Background lighting that adds ambience and softens screen contrast." },
-  { slug: "desk-organizer", categoryId: "organization", platform: "ebay", title: "Desk organizer", keyword: "desk organizer", summary: "Pens, papers and small items in the right place." },
-  { slug: "monitor-riser", categoryId: "organization", platform: "amazon", title: "Monitor riser with storage", keyword: "monitor stand riser", summary: "Lifts your monitor and frees up space underneath." },
-  { slug: "cable-organizer", categoryId: "organization", platform: "ebay", title: "Cable organizer", keyword: "cable organizer", summary: "Less cable clutter and an easier desk to clean." },
-  { slug: "usb-hub", categoryId: "accessories", platform: "amazon", title: "Multi-port USB hub", keyword: "usb hub", summary: "More ports for laptops with few connections." },
-  { slug: "large-mouse-pad", categoryId: "accessories", platform: "ebay", title: "Large desk mouse pad", keyword: "large desk mouse pad", summary: "Covers keyboard and mouse, protects the desk and improves glide." },
-  { slug: "surge-protector", categoryId: "accessories", platform: "amazon", title: "Surge protector with USB", keyword: "surge protector usb", summary: "More outlets and phone charging right at your desk." },
+  { slug: "fridge-organizer-bins", categoryId: "home", platform: "amazon", title: "Fridge organizer bins", keyword: "fridge organizer bins", summary: "Bins and dividers to keep the fridge tidy and use space better." },
+  { slug: "bluetooth-earbuds", categoryId: "tech", platform: "ebay", title: "Bluetooth earbuds", keyword: "bluetooth earbuds", summary: "Wireless earbuds for everyday use, with good battery life." },
+  { slug: "makeup-organizer", categoryId: "beauty", platform: "amazon", title: "Makeup organizer", keyword: "makeup organizer", summary: "Keeps brushes and products within reach and protected from dust." },
+  { slug: "resistance-bands-set", categoryId: "fitness", platform: "ebay", title: "Resistance bands set", keyword: "resistance bands set", summary: "Home workouts with different resistance levels." },
+  { slug: "travel-toiletry-bag", categoryId: "fashion", platform: "amazon", title: "Travel toiletry bag", keyword: "travel toiletry bag", summary: "Room for toiletries and easy to pack in a suitcase." },
+  { slug: "pet-water-fountain", categoryId: "pets", platform: "ebay", title: "Pet water fountain", keyword: "pet water fountain", summary: "Flowing, filtered water to encourage your pet to drink more." },
+  { slug: "kids-jigsaw-puzzle", categoryId: "kids", platform: "amazon", title: "Kids jigsaw puzzle", keyword: "kids jigsaw puzzle", summary: "Play that builds coordination and problem solving." },
+  { slug: "rechargeable-led-flashlight", categoryId: "gadgets", platform: "ebay", title: "Rechargeable LED flashlight", keyword: "rechargeable led flashlight", summary: "Compact flashlight for emergencies, travel and small repairs." },
 ];
 
 // Se catalog.us.json tiver produtos (gerado por `npm run import`), ele substitui os exemplos.

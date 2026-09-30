@@ -2,21 +2,21 @@ import type { Guide } from "./types";
 
 export const guidesBR: Guide[] = [
   {
-    slug: "home-office-barato",
+    slug: "achados-da-semana",
     market: "br",
-    title: "Home office barato: o que comprar primeiro",
-    description: "Lista enxuta de itens que mais melhoram conforto e produtividade no home office, sem gastar muito.",
-    intro: "Se você trabalha em casa e quer melhorar o setup aos poucos, esta é a ordem que faz mais diferença: postura, digitação e iluminação.",
-    productIds: ["br-suporte-notebook", "br-teclado-mecanico", "br-mouse-vertical", "br-luminaria-led", "br-apoio-pes"],
+    title: "Achadinhos da semana",
+    description: "Seleção de produtos úteis que chamaram atenção esta semana.",
+    intro: "Uma seleção de produtos úteis, com pontos positivos e pontos de atenção de cada um, para você decidir rápido.",
+    productIds: ["br-organizador-geladeira", "br-fone-bluetooth", "br-kit-elasticos", "br-lanterna-led"],
     updatedAt: "2026-09-30",
   },
   {
-    slug: "reunioes-online",
+    slug: "utilidades-do-dia-a-dia",
     market: "br",
-    title: "Equipamentos para reuniões e aulas online",
-    description: "O básico para aparecer bem em videochamadas: imagem, luz e conforto.",
-    intro: "Para videochamadas, imagem e luz importam mais que qualquer equipamento caro. Comece por aqui.",
-    productIds: ["br-webcam-full-hd", "br-microfone-usb", "br-ring-light", "br-headset-usb"],
+    title: "Utilidades para o dia a dia",
+    description: "Itens simples que resolvem pequenos problemas da rotina.",
+    intro: "Produtos práticos e de custo baixo para facilitar a rotina em casa, na viagem e com os pets.",
+    productIds: ["br-necessaire-viagem", "br-fonte-agua-pet", "br-organizador-maquiagem", "br-quebra-cabeca-infantil"],
     updatedAt: "2026-09-30",
   },
 ];

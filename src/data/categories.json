@@ -1,18 +1,22 @@
 {
   "br": [
-    { "id": "peripherals", "name": "Periféricos", "emoji": "⌨️" },
-    { "id": "ergonomics", "name": "Ergonomia", "emoji": "🪑" },
-    { "id": "video-audio", "name": "Vídeo e áudio", "emoji": "🎧" },
-    { "id": "lighting", "name": "Iluminação", "emoji": "💡" },
-    { "id": "organization", "name": "Organização", "emoji": "🗂️" },
-    { "id": "accessories", "name": "Acessórios", "emoji": "🔌" }
+    { "id": "home", "name": "Casa e cozinha", "emoji": "🏠" },
+    { "id": "tech", "name": "Tecnologia", "emoji": "📱" },
+    { "id": "beauty", "name": "Beleza", "emoji": "💄" },
+    { "id": "fitness", "name": "Fitness", "emoji": "🏋️" },
+    { "id": "fashion", "name": "Moda e acessórios", "emoji": "👜" },
+    { "id": "pets", "name": "Pets", "emoji": "🐶" },
+    { "id": "kids", "name": "Infantil", "emoji": "🧸" },
+    { "id": "gadgets", "name": "Utilidades", "emoji": "🔧" }
   ],
   "us": [
-    { "id": "peripherals", "name": "Peripherals", "emoji": "⌨️" },
-    { "id": "ergonomics", "name": "Ergonomics", "emoji": "🪑" },
-    { "id": "video-audio", "name": "Video & Audio", "emoji": "🎧" },
-    { "id": "lighting", "name": "Lighting", "emoji": "💡" },
-    { "id": "organization", "name": "Organization", "emoji": "🗂️" },
-    { "id": "accessories", "name": "Accessories", "emoji": "🔌" }
+    { "id": "home", "name": "Home & Kitchen", "emoji": "🏠" },
+    { "id": "tech", "name": "Tech", "emoji": "📱" },
+    { "id": "beauty", "name": "Beauty", "emoji": "💄" },
+    { "id": "fitness", "name": "Fitness", "emoji": "🏋️" },
+    { "id": "fashion", "name": "Fashion & Accessories", "emoji": "👜" },
+    { "id": "pets", "name": "Pets", "emoji": "🐶" },
+    { "id": "kids", "name": "Kids", "emoji": "🧸" },
+    { "id": "gadgets", "name": "Gadgets", "emoji": "🔧" }
   ]
 }

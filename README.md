@@ -21,6 +21,10 @@ Em dev não há header de país: use `http://localhost:3000/?market=br` ou `?mar
 
 Preencha `catalog/br.csv` / `catalog/us.csv` e rode `npm run import`. Passo a passo completo em **`ROTEIRO-PRODUTOS.md`**.
 
+## Divulgação
+
+Plano de canais gratuitos, regras da Amazon e rotina: **`ROTEIRO-DIVULGACAO.md`**.
+
 ## Antes de publicar (importante)
 
 Os produtos em `src/data/products.*.ts` são **exemplos** (links de busca das lojas, textos genéricos).

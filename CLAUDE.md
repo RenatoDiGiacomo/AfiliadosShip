@@ -27,7 +27,7 @@ src/
       page.tsx           # home do mercado
       produto/[slug]/    # página de produto/review
       guia/[slug]/       # guias e comparações ("melhores X")
-    go/[id]/route.ts     # redirect de afiliado (registra clique, 302 para a loja)
+    go/[platform]/[id]/route.ts     # redirect de afiliado (registra clique, 302 para a loja)
     sitemap.ts, robots.ts
   data/
     markets.ts           # config dos mercados (idioma, moeda, lojas ativas)
@@ -77,7 +77,7 @@ interface Product {
 ```
 
 ## Links de afiliado
-- **Nunca** colocar link de afiliado direto no HTML. Tudo passa por `/go/[id]`, que monta o link em `lib/affiliate.ts`.
+- **Nunca** colocar link de afiliado direto no HTML. Tudo passa por `/go/[loja]/[id]`, que monta o link em `lib/affiliate.ts`.
 - IDs/tags de afiliado ficam em variáveis de ambiente, nunca no código:
   - `AMAZON_TAG` (Amazon Associates EUA): vira o parâmetro `tag` da URL
   - `EBAY_CAMPID` (eBay Partner Network): vira os parâmetros de campanha da URL

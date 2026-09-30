@@ -2,21 +2,21 @@ import type { Guide } from "./types";
 
 export const guidesUS: Guide[] = [
   {
-    slug: "budget-home-office",
+    slug: "weekly-finds",
     market: "us",
-    title: "Budget home office: what to buy first",
-    description: "A short list of the upgrades that improve comfort and productivity the most without a big spend.",
-    intro: "If you work from home and want to upgrade your setup step by step, this is the order that matters most: posture, typing and lighting.",
-    productIds: ["us-laptop-stand", "us-budget-mechanical-keyboard", "us-vertical-ergonomic-mouse", "us-led-desk-lamp", "us-footrest"],
+    title: "This week's finds",
+    description: "A selection of useful products that caught our eye this week.",
+    intro: "A hand-picked selection of useful products, with what's good and what to watch for in each, so you can decide fast.",
+    productIds: ["us-fridge-organizer-bins", "us-bluetooth-earbuds", "us-resistance-bands-set", "us-rechargeable-led-flashlight"],
     updatedAt: "2026-09-30",
   },
   {
-    slug: "video-call-setup",
+    slug: "everyday-gadgets",
     market: "us",
-    title: "Video call setup: look good on camera",
-    description: "The basics for meetings and online classes: image, light and comfort.",
-    intro: "For video calls, image and lighting matter more than any expensive gear. Start here.",
-    productIds: ["us-1080p-webcam", "us-usb-microphone", "us-ring-light", "us-usb-headset"],
+    title: "Everyday gadgets",
+    description: "Simple items that solve small problems in your routine.",
+    intro: "Practical, low-cost products to make life easier at home, on the road and with your pets.",
+    productIds: ["us-travel-toiletry-bag", "us-pet-water-fountain", "us-makeup-organizer", "us-kids-jigsaw-puzzle"],
     updatedAt: "2026-09-30",
   },
 ];
