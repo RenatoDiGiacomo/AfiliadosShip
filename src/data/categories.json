@@ -1,0 +1,18 @@
+{
+  "br": [
+    { "id": "peripherals", "name": "Periféricos", "emoji": "⌨️" },
+    { "id": "ergonomics", "name": "Ergonomia", "emoji": "🪑" },
+    { "id": "video-audio", "name": "Vídeo e áudio", "emoji": "🎧" },
+    { "id": "lighting", "name": "Iluminação", "emoji": "💡" },
+    { "id": "organization", "name": "Organização", "emoji": "🗂️" },
+    { "id": "accessories", "name": "Acessórios", "emoji": "🔌" }
+  ],
+  "us": [
+    { "id": "peripherals", "name": "Peripherals", "emoji": "⌨️" },
+    { "id": "ergonomics", "name": "Ergonomics", "emoji": "🪑" },
+    { "id": "video-audio", "name": "Video & Audio", "emoji": "🎧" },
+    { "id": "lighting", "name": "Lighting", "emoji": "💡" },
+    { "id": "organization", "name": "Organization", "emoji": "🗂️" },
+    { "id": "accessories", "name": "Accessories", "emoji": "🔌" }
+  ]
+}
