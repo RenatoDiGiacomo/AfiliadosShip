@@ -41,6 +41,5 @@ export interface Guide {
   title: string;
   description: string;
   intro: string;
-  productIds: string[];
   updatedAt: string;
 }

@@ -31,9 +31,9 @@ export async function GuideCard({ guide }: { guide: Guide }) {
         ))}
       </div>
       <div className="p-5">
-        <h3 className="font-semibold text-slate-900">{guide.title}</h3>
-        <p className="mt-2 text-sm text-slate-600">{guide.description}</p>
-        <p className="mt-3 text-xs font-medium text-[var(--brand)]">{t.productsCount(all.length)}</p>
+        <h3 className="font-semibold text-[var(--fg)]">{guide.title}</h3>
+        <p className="mt-2 text-sm text-[var(--fg-muted)]">{guide.description}</p>
+        <p className="mt-3 text-xs font-medium text-[var(--brand-text)]">{t.productsCount(all.length)}</p>
       </div>
     </Link>
   );

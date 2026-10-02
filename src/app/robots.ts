@@ -3,7 +3,8 @@ import { SITE_URL } from "@/data/markets";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: ["/go/"] },
+    // /go/ = redirects de afiliado; /busca = resultados de busca interna (conteúdo fino).
+    rules: { userAgent: "*", allow: "/", disallow: ["/go/", "/us/busca", "/br/busca"] },
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

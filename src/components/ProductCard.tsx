@@ -5,6 +5,7 @@ import { dict } from "@/lib/i18n";
 import { getProductMedia } from "@/lib/media";
 import { placeholderFor } from "@/lib/placeholder";
 import { AffiliateButton } from "./AffiliateButton";
+import { PlatformLogo } from "./PlatformLogo";
 import { ProductImage } from "./ProductImage";
 
 const money = (p: Product) =>
@@ -23,7 +24,8 @@ export async function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg">
       <Link href={href} className="relative block aspect-square bg-slate-50" aria-label={product.title}>
-        <span className="absolute left-2 top-2 z-10 rounded-full bg-white/90 px-2 py-0.5 text-[11px] font-semibold text-slate-700 shadow">
+        <span className="absolute left-2 top-2 z-10 inline-flex items-center gap-1 rounded-full bg-white/90 px-2 py-0.5 text-[11px] font-semibold text-[var(--fg-muted)] shadow">
+          <PlatformLogo platform={product.platform} size={14} />
           {PLATFORM_LABEL[product.platform]}
         </span>
         <ProductImage
@@ -34,15 +36,15 @@ export async function ProductCard({ product }: { product: Product }) {
         />
       </Link>
       <div className="flex flex-1 flex-col p-4">
-        <p className="text-xs text-slate-500">{product.category}</p>
-        <h3 className="mt-1 line-clamp-2 min-h-[2.75rem] font-semibold leading-snug text-slate-900">
+        <p className="text-xs text-[var(--fg-soft)]">{product.category}</p>
+        <h3 className="mt-1 line-clamp-2 min-h-[2.75rem] font-semibold leading-snug text-[var(--fg)]">
           <Link href={href} className="hover:underline">
             {product.title}
           </Link>
         </h3>
         {price && (
-          <p className="mt-2 text-lg font-bold text-slate-900">
-            {price} <span className="text-[11px] font-normal text-slate-500">{t.referencePrice}</span>
+          <p className="mt-2 text-lg font-bold text-[var(--fg)]">
+            {price} <span className="text-[11px] font-normal text-[var(--fg-soft)]">{t.referencePrice}</span>
           </p>
         )}
         <div className="mt-auto pt-3">

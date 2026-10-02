@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { MARKET_IDS } from "@/data/markets";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
+import { legalPath } from "@/lib/paths";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => MARKET_IDS.map((market) => ({ market }));
 
 export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
   const market = await getMarket(params);
-  return { title: dict[market].privacy, alternates: { canonical: `/${market}/privacidade` } };
+  return { title: dict[market].privacy, alternates: { canonical: legalPath(market, "privacy") } };
 }
 
 export default async function Page({ params }: { params: Promise<{ market: string }> }) {
@@ -18,7 +19,7 @@ export default async function Page({ params }: { params: Promise<{ market: strin
     <article className="mx-auto max-w-2xl space-y-4">
       <h1 className="text-3xl font-bold">{t.privacy}</h1>
       {t.privacyBody.map((p) => (
-        <p key={p} className="text-slate-700">
+        <p key={p} className="text-[var(--fg-muted)]">
           {p}
         </p>
       ))}

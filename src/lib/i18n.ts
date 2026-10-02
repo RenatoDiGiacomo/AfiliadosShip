@@ -17,6 +17,8 @@ export interface Dict {
   fromStore: (store: string) => string;
   readReview: string;
   buyOn: (store: string) => string;
+  checkPrice: (store: string) => string;
+  priceOn: (store: string) => string;
   pros: string;
   cons: string;
   updatedOn: string;
@@ -34,18 +36,20 @@ export interface Dict {
   searchTitle: string;
   trust: { icon: string; title: string; text: string }[];
   footerAbout: string;
+  comingSoonTitle: string;
+  comingSoonText: string;
   privacyBody: string[];
   termsBody: string[];
 }
 
 export const dict: Record<Market, Dict> = {
   br: {
-    siteName: "Achadinhos",
-    tagline: "Achadinhos selecionados: produtos úteis do Mercado Livre e da Shopee, com prós e contras.",
+    siteName: "Achado da Web",
+    tagline: "Achados selecionados: produtos úteis do Mercado Livre e da Shopee, com prós e contras.",
     announcement: "Você compra direto no Mercado Livre e na Shopee. Nós só mostramos os melhores achados.",
     searchPlaceholder: "O que você está procurando?",
-    heroBadge: "Achadinhos da semana",
-    heroTitle: "Os melhores achadinhos da internet",
+    heroBadge: "Achados da semana",
+    heroTitle: "Os melhores achados da web",
     heroSub: "Produtos selecionados do Mercado Livre e da Shopee. Você compra direto na loja.",
     heroCta: "Ver seleção",
     guides: "Seleções",
@@ -56,6 +60,8 @@ export const dict: Record<Market, Dict> = {
     fromStore: (store) => (store === "Shopee" ? "Em destaque na Shopee" : `Em destaque no ${store}`),
     readReview: "Ler análise",
     buyOn: (store) => (store === "Shopee" ? "Ver na Shopee" : `Ver no ${store}`),
+    checkPrice: (store) => (store === "Shopee" ? "Ver preço na Shopee" : `Ver preço no ${store}`),
+    priceOn: (store) => (store === "Shopee" ? "Preço atual na Shopee" : `Preço atual no ${store}`),
     pros: "Pontos positivos",
     cons: "Pontos de atenção",
     updatedOn: "Atualizado em",
@@ -72,11 +78,12 @@ export const dict: Record<Market, Dict> = {
     noResults: "Nenhum produto encontrado. Tente outro termo ou navegue pelas categorias.",
     searchTitle: "Busca",
     trust: [
-      { icon: "🛒", title: "Compra direto na loja", text: "Você finaliza no Mercado Livre ou na Shopee, com as regras de cada loja." },
       { icon: "🔍", title: "Análises objetivas", text: "Pontos positivos, pontos de atenção e o que observar antes de comprar." },
       { icon: "💸", title: "Sem custo extra", text: "Recebemos comissão da loja. Você paga o mesmo preço." },
     ],
-    footerAbout: "Achadinhos selecionados para você economizar tempo na hora de comprar.",
+    footerAbout: "Achados selecionados para você economizar tempo na hora de comprar.",
+    comingSoonTitle: "Em breve",
+    comingSoonText: "Estamos preparando os achados do Brasil. Volte em breve!",
     privacyBody: [
       "Este site pode usar cookies para lembrar sua escolha de mercado (Brasil ou EUA) e para medir o uso do site.",
       "Ao clicar em links de afiliado, você é redirecionado para a loja (Mercado Livre, Shopee), que possui sua própria política de privacidade.",
@@ -105,6 +112,8 @@ export const dict: Record<Market, Dict> = {
     fromStore: (store) => `Featured on ${store}`,
     readReview: "Read review",
     buyOn: (store) => `View on ${store}`,
+    checkPrice: (store) => `Check price on ${store}`,
+    priceOn: (store) => `Current price on ${store}`,
     pros: "What's good",
     cons: "Things to watch",
     updatedOn: "Updated",
@@ -127,6 +136,8 @@ export const dict: Record<Market, Dict> = {
       { icon: "💸", title: "No extra cost", text: "We earn a commission from the store. You pay the same price." },
     ],
     footerAbout: "Hand-picked finds to save you time when shopping.",
+    comingSoonTitle: "Coming soon",
+    comingSoonText: "We are getting the finds ready. Check back soon!",
     privacyBody: [
       "This site may use cookies to remember your market choice (Brazil or US) and to measure site usage.",
       "When you click an affiliate link you are sent to the store (Amazon, eBay), which has its own privacy policy.",

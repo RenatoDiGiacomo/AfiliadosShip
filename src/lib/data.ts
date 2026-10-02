@@ -5,7 +5,9 @@ import { productsBR } from "@/data/products.br";
 import { productsUS } from "@/data/products.us";
 import type { Guide, Market, Product } from "@/data/types";
 
-const ALL_PRODUCTS: Product[] = [...productsBR, ...productsUS];
+// Ordem de chegada: o último produto do CSV vem primeiro em todas as listas (home, categorias, guias, carrossel, busca).
+const newestFirst = (list: Product[]) => list.slice().reverse();
+const ALL_PRODUCTS: Product[] = [...newestFirst(productsBR), ...newestFirst(productsUS)];
 const ALL_GUIDES: Guide[] = [...guidesBR, ...guidesUS];
 
 export const getProducts = (market: Market) => ALL_PRODUCTS.filter((p) => p.market === market);
@@ -13,19 +15,14 @@ export const getProduct = (market: Market, slug: string) =>
   ALL_PRODUCTS.find((p) => p.market === market && p.slug === slug);
 export const getProductById = (id: string) => ALL_PRODUCTS.find((p) => p.id === id);
 
-export const getGuides = (market: Market) => ALL_GUIDES.filter((g) => g.market === market);
-export const getGuide = (market: Market, slug: string) =>
-  ALL_GUIDES.find((g) => g.market === market && g.slug === slug);
+/** Só coleções que têm produtos (a lista vem da coluna `guias` do CSV). */
+export const getGuides = (market: Market) =>
+  ALL_GUIDES.filter((g) => g.market === market && getGuideProducts(g).length > 0);
+export const getGuide = (market: Market, slug: string) => getGuides(market).find((g) => g.slug === slug);
 
-/** Produtos de um guia, sempre do mesmo mercado do guia. */
-export const getGuideProducts = (guide: Guide) => {
-  // Catálogo real: produtos que listam o slug do guia. Sem nenhum, usa guide.productIds (exemplos).
-  const tagged = getProducts(guide.market).filter((p) => p.guides?.includes(guide.slug));
-  if (tagged.length > 0) return tagged;
-  return guide.productIds
-    .map(getProductById)
-    .filter((p): p is Product => p !== undefined && p.market === guide.market);
-};
+/** Produtos de um guia: os que listam o slug do guia na coluna `guias`, do mesmo mercado. */
+export const getGuideProducts = (guide: Guide) =>
+  getProducts(guide.market).filter((p) => p.guides?.includes(guide.slug));
 
 /** Só categorias que têm pelo menos um produto (evita páginas vazias). */
 export const getCategories = (market: Market) =>

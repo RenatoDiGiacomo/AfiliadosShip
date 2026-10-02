@@ -23,7 +23,7 @@ export default async function SearchPage({
 
   return (
     <div className="space-y-6">
-      <nav className="text-sm text-slate-500">
+      <nav className="text-sm text-[var(--fg-soft)]">
         <Link href={`/${market}`} className="hover:underline">
           {t.home}
         </Link>{" "}
@@ -38,7 +38,7 @@ export default async function SearchPage({
         </div>
       ) : (
         <div className="space-y-6">
-          <p className="text-slate-600">{t.noResults}</p>
+          <p className="text-[var(--fg-muted)]">{t.noResults}</p>
           <CategoryCircles market={market} />
         </div>
       )}

@@ -32,7 +32,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
 
   return (
     <div className="space-y-6">
-      <nav className="text-sm text-slate-500">
+      <nav className="text-sm text-[var(--fg-soft)]">
         <Link href={`/${market}`} className="hover:underline">
           {t.home}
         </Link>{" "}
@@ -49,8 +49,8 @@ export default async function CategoryPage({ params }: { params: Params }) {
             href={`/${market}/categoria/${c.id}`}
             className={`rounded-full border px-3 py-1 text-sm ${
               c.id === id
-                ? "border-[var(--brand)] bg-[var(--brand)] text-white"
-                : "border-slate-300 bg-white text-slate-700 hover:border-[var(--brand)]"
+                ? "border-[var(--brand)] bg-[var(--brand)] text-[var(--on-brand)]"
+                : "border-slate-300 bg-white text-[var(--fg-muted)] hover:border-[var(--brand)]"
             }`}
           >
             {c.name}

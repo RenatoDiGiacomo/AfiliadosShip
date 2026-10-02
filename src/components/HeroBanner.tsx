@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Market } from "@/data/types";
-import { getGuides, getGuideProducts } from "@/lib/data";
+import { getGuides, getProducts } from "@/lib/data";
 import { dict } from "@/lib/i18n";
 import { getProductMedia } from "@/lib/media";
 import { placeholderFor } from "@/lib/placeholder";
@@ -10,11 +10,14 @@ import { ProductImage } from "./ProductImage";
 export async function HeroBanner({ market }: { market: Market }) {
   const t = dict[market];
   const guide = getGuides(market)[0];
-  const products = guide ? getGuideProducts(guide).slice(0, 4) : [];
+  // Sempre os 4 últimos itens adicionados (getProducts já devolve do mais novo para o mais antigo).
+  // Prefere os que têm foto (no mercado US alguns usam só a ilustração da categoria).
+  const newest = getProducts(market);
+  const products = [...newest.filter((p) => p.image), ...newest.filter((p) => !p.image)].slice(0, 4);
   const media = await Promise.all(products.map((p) => getProductMedia(p)));
 
   return (
-    <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--brand)] to-[var(--brand-dark)] text-white shadow-lg">
+    <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--hero-from)] to-[var(--brand-dark)] text-white shadow-lg">
       <div className="grid items-center gap-8 p-6 sm:p-10 md:grid-cols-2">
         <div>
           <span className="inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
@@ -25,7 +28,7 @@ export async function HeroBanner({ market }: { market: Market }) {
           {guide && (
             <Link
               href={`/${market}/guia/${guide.slug}`}
-              className="mt-6 inline-block rounded-full bg-white px-6 py-3 text-sm font-bold text-[var(--brand-dark)] transition hover:bg-slate-100"
+              className="mt-6 inline-block rounded-full bg-[var(--cta-bg)] px-6 py-3 text-sm font-bold text-[var(--cta-fg)] transition hover:bg-[var(--cta-hover)]"
             >
               {t.heroCta}
             </Link>

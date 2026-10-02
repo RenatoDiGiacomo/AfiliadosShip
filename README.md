@@ -27,7 +27,7 @@ Plano de canais gratuitos, regras da Amazon e rotina: **`ROTEIRO-DIVULGACAO.md`*
 
 ## Antes de publicar (importante)
 
-Os produtos em `src/data/products.*.ts` são **exemplos** (links de busca das lojas, textos genéricos).
+O site começa **sem produtos**: os mercados mostram "em breve" até você preencher `catalog/br.csv` / `catalog/us.csv` e rodar `npm run import`.
 1. Troque `productUrl` por URLs reais de produtos que você pesquisou.
 2. Mercado Livre/Shopee: cole o link do painel de afiliados em `affiliateUrl`.
 3. Reescreva resumos, prós e contras com informação real e original.
@@ -36,7 +36,7 @@ Os produtos em `src/data/products.*.ts` são **exemplos** (links de busca das lo
 
 ## Imagens
 
-O site tenta ler a imagem de cada produto a partir do `productUrl` (Open Graph / JSON-LD). Se não encontrar, mostra uma imagem ilustrativa da categoria (`public/placeholders/`). Enquanto os `productUrl` forem páginas de busca (como nos exemplos), todas as imagens serão a genérica. Para forçar uma imagem, preencha `image` ou `images` no produto.
+O site tenta ler a imagem de cada produto a partir do `productUrl` (Open Graph / JSON-LD). Se não encontrar, mostra uma imagem ilustrativa da categoria (`public/placeholders/`). Na Amazon nunca se busca imagem (regra do programa): use imagem própria ou a ilustração da categoria. Para forçar uma imagem, preencha `image` ou `images` no produto.
 
 ## Deploy grátis
 

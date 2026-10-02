@@ -1,0 +1,12 @@
+[
+  {
+    "id": "fashion",
+    "name": "Moda e acessórios",
+    "emoji": "👜"
+  },
+  {
+    "id": "brinquedos",
+    "name": "Brinquedos",
+    "emoji": "🛍️"
+  }
+]

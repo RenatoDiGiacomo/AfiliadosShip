@@ -5,3 +5,8 @@ out
 .env.local
 *.tsbuildinfo
 next-env.d.ts
+
+# Feeds de produtos (grandes, nunca no Git)
+catalog/feeds/
+catalog/*feed*
+*.feed.csv

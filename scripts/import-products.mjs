@@ -41,6 +41,8 @@ const HEADER_ALIASES = {
 };
 
 const strip = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+const EMOJI_HINTS = [[/kitchen|cozinha|cook/, "🍳"], [/comput|laptop|pc|notebook|inform/, "💻"], [/mouse|keyboard|teclado|accessor|acess/, "🖱️"], [/phone|celular|audio|headphone|fone/, "🎧"], [/home|casa|decor/, "🏠"], [/tech|tecnolog|electron|eletr/, "📱"], [/beauty|beleza|skin/, "💄"], [/fit|gym|sport|esporte/, "🏋️"], [/fashion|moda|cloth|roupa/, "👕"], [/pet/, "🐾"], [/kid|baby|infant|crian/, "🧸"], [/tool|ferrament|gadget|util/, "🔧"], [/game|jogo/, "🎮"], [/book|livro/, "📚"]];
+const guessEmoji = (name) => { const n = strip(name); return (EMOJI_HINTS.find(([re]) => re.test(n)) ?? [0, "🛍️"])[1]; };
 const slugify = (s) => strip(s).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 const splitList = (s) => (s ?? "").split(/[|\n]/).map((x) => x.trim()).filter(Boolean);
 
@@ -103,8 +105,9 @@ function importMarket(market) {
   const cfg = MARKETS[market];
   const cats = categories[market];
   const errors = [], warnings = [];
+  const usedCats = new Map();
   const rows = parseCsv(fs.readFileSync(file, "utf8"));
-  if (rows.length === 0) { fs.writeFileSync(out, "[]\n"); return { market, count: 0, errors, warnings }; }
+  if (rows.length === 0) { fs.writeFileSync(out, "[]\n"); fs.writeFileSync(path.join(root, "src", "data", `categories.${market}.generated.json`), "[]\n"); return { market, count: 0, errors, warnings }; }
 
   const keys = rows[0].map((h) => HEADER_ALIASES[strip(h).replace(/\s+/g, "_")]);
   rows[0].forEach((h, i) => { if (!keys[i]) warnings.push(`coluna ignorada: "${h}"`); });
@@ -127,8 +130,13 @@ function importMarket(market) {
     if (!platform || !cfg.platforms.includes(platform))
       return err(`plataforma "${r.platform}" não vale para o mercado ${market} (use: ${cfg.platforms.join(", ")})`);
 
-    const cat = cats.find((c) => c.id === strip(r.category) || strip(c.name) === strip(r.category));
-    if (!cat) return err(`categoria "${r.category}" não existe (use: ${cats.map((c) => c.id).join(", ")})`);
+    // Categoria livre: vale o texto do CSV. Se bater com uma conhecida (id ou nome), reaproveita nome e ícone.
+    const known = cats.find((c) => c.id === strip(r.category) || strip(c.name) === strip(r.category));
+    const catName = known ? known.name : r.category.trim();
+    const catId = known ? known.id : slugify(r.category);
+    if (!catId) return err("categoria vazia");
+    const cat = { id: catId, name: catName, emoji: known ? known.emoji : guessEmoji(r.category) };
+    if (!usedCats.has(cat.id)) usedCats.set(cat.id, cat);
 
     const slug = r.slug ? slugify(r.slug) : slugify(r.title);
     if (!slug) return err("slug vazio");
@@ -143,7 +151,9 @@ function importMarket(market) {
     if (r.affiliateUrl) {
       try { new URL(r.affiliateUrl); } catch { return err(`link_afiliado inválido: ${r.affiliateUrl}`); }
     } else if (platform === "mercadolivre" || platform === "shopee") {
-      warn("sem link_afiliado: o botão levará à loja SEM comissão");
+      warn(platform === "shopee"
+        ? "sem link_afiliado: o link será montado com SHOPEE_AFFILIATE_ID (configure na Vercel e no .env.local); sem ela, vai SEM comissão"
+        : "sem link_afiliado: o botão levará à loja SEM comissão");
     }
 
     let price;
@@ -195,6 +205,7 @@ function importMarket(market) {
       if (old && JSON.stringify({ ...old, updatedAt: "" }) === JSON.stringify({ ...p, updatedAt: "" })) p.updatedAt = old.updatedAt;
     }
     fs.writeFileSync(out, JSON.stringify(products, null, 2) + "\n");
+    fs.writeFileSync(path.join(root, "src", "data", `categories.${market}.generated.json`), JSON.stringify([...usedCats.values()], null, 2) + "\n");
   }
   return { market, count: products.length, errors, warnings };
 }
@@ -209,6 +220,13 @@ for (const market of targets) {
   res.warnings.forEach((w) => console.log(`[${market}] aviso  ${w}`));
   res.errors.forEach((e) => console.log(`[${market}] ERRO   ${e}`));
   if (res.errors.length) { failed = true; console.log(`[${market}] nada foi gravado (corrija os erros acima)`); }
-  else console.log(`[${market}] ${res.count} produto(s) gravado(s) em src/data/catalog.${market}.json${res.count === 0 ? " (vazio: o site usa os produtos de exemplo)" : ""}`);
+  else console.log(`[${market}] ${res.count} produto(s) gravado(s) em src/data/catalog.${market}.json${res.count === 0 ? " (vazio: o mercado mostra \"em breve\")" : ""}`);
 }
+// Mercados com produtos: o site só direciona visitantes para eles.
+const active = Object.keys(MARKETS).filter((m) => {
+  try { return JSON.parse(fs.readFileSync(path.join(root, "src", "data", `catalog.${m}.json`), "utf8")).length > 0; }
+  catch { return false; }
+});
+fs.writeFileSync(path.join(root, "src", "data", "markets.active.json"), JSON.stringify(active) + "\n");
+console.log(`Mercados ativos: ${active.length ? active.join(", ") : "nenhum"}`);
 process.exit(failed ? 1 : 0);

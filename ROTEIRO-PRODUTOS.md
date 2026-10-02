@@ -87,7 +87,7 @@ Abra `catalog/br.csv` (Brasil) ou `catalog/us.csv` (EUA) no Excel ou Google Plan
 | `preco` | não | Só BR, preço de referência (ex.: `149,90`). Ignorado nos EUA |
 | `guias` | não | Slugs dos guias onde o produto entra, separados por `\|` (ex.: `achados-da-semana`, `utilidades-do-dia-a-dia`; nos EUA: `weekly-finds`, `everyday-gadgets`) |
 
-Enquanto `catalog/br.csv` ou `catalog/us.csv` tiver só o cabeçalho, o site mostra os **produtos de exemplo**. Assim que tiver pelo menos 1 produto, os exemplos daquele mercado somem.
+Enquanto `catalog/br.csv` ou `catalog/us.csv` tiver só o cabeçalho, o mercado mostra "em breve" e fica fora do Google. Assim que tiver pelo menos 1 produto, ele entra no ar.
 
 ## 5. Escrever o conteúdo
 

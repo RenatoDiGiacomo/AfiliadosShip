@@ -1,1 +1,336 @@
-[]
+[
+  {
+    "id": "us-new-england-stories-rechargeable-milk-frother-wand",
+    "slug": "new-england-stories-rechargeable-milk-frother-wand",
+    "market": "us",
+    "platform": "amazon",
+    "title": "New England Stories Rechargeable Milk Frother Wand",
+    "summary": "A handheld milk frother with a dual-spring whisk that charges over USB instead of using batteries. Small enough to keep in a drawer or pack for travel.",
+    "pros": [
+      "USB rechargeable, no batteries",
+      "Works with dairy and plant milks",
+      "Compact and cordless"
+    ],
+    "cons": [
+      "Handheld whisk, so foam takes a little technique",
+      "Great for drinks, not a replacement for a steam wand"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0FT3G72LZ",
+    "category": "Kitchen",
+    "categoryId": "kitchen",
+    "updatedAt": "2026-09-30",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-cosori-turboblaze-6-qt-air-fryer",
+    "slug": "cosori-turboblaze-6-qt-air-fryer",
+    "market": "us",
+    "platform": "amazon",
+    "title": "Cosori TurboBlaze 6 Qt Air Fryer",
+    "summary": "A 6-quart, 9-in-1 air fryer with a fast fan, wide temperature range and a ceramic-coated basket. Sized for family meals and covers roasting, baking and reheating.",
+    "pros": [
+      "Fast fan with 5 speed settings",
+      "Wide 90-450F range",
+      "Ceramic coating without PFAS",
+      "Quieter than many air fryers"
+    ],
+    "cons": [
+      "Large footprint on the counter",
+      "Square basket is roomy but check your space"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0C33CHG99",
+    "category": "Kitchen",
+    "categoryId": "kitchen",
+    "updatedAt": "2026-09-30",
+    "image": "https://cosori.com/cdn/shop/files/CGTM_2303_CAF-DC601-KUS_WA1_01_Front_v2_1_43fa6802-67e3-4603-9ad1-54c54f2e5a8a.png?v=1762457880",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-kitchenaid-all-purpose-kitchen-shears",
+    "slug": "kitchenaid-all-purpose-kitchen-shears",
+    "market": "us",
+    "platform": "amazon",
+    "title": "KitchenAid All Purpose Kitchen Shears",
+    "summary": "Kitchen scissors with micro-serrated stainless steel blades and a soft grip, sold with a protective sheath. A simple tool that replaces a knife for lots of small tasks.",
+    "pros": [
+      "Micro-serrated blades grip slippery food",
+      "Comes with a blade sheath",
+      "Dishwasher safe"
+    ],
+    "cons": [
+      "Hand washing keeps the edge sharp longer"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B07PZF3QS3",
+    "category": "Kitchen",
+    "categoryId": "kitchen",
+    "updatedAt": "2026-09-30",
+    "guides": [
+      "weekly-finds",
+      "everyday-gadgets"
+    ]
+  },
+  {
+    "id": "us-bella-2-slice-slim-toaster-with-long-slot",
+    "slug": "bella-2-slice-slim-toaster-with-long-slot",
+    "market": "us",
+    "platform": "amazon",
+    "title": "bella 2-Slice Slim Toaster with Long Slot",
+    "summary": "A slim 2-slice toaster with one extra-long slot, six shade settings and a removable crumb tray. Made for small counters and wider breads.",
+    "pros": [
+      "Slim 3.6 inch profile",
+      "Long slot fits wide or artisan slices",
+      "Six shade settings and cancel button"
+    ],
+    "cons": [
+      "Single long slot means slices toast side by side, not separately"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0CYJBB2JQ",
+    "category": "Kitchen",
+    "categoryId": "kitchen",
+    "updatedAt": "2026-09-30",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-zaa-3-in-1-kitchen-sink-drain-strainer",
+    "slug": "zaa-3-in-1-kitchen-sink-drain-strainer",
+    "market": "us",
+    "platform": "amazon",
+    "title": "zaa 3-in-1 Kitchen Sink Drain Strainer",
+    "summary": "A stainless steel sink strainer that also works as a stopper and has a removable basket to catch food scraps. Helps keep the drain from clogging.",
+    "pros": [
+      "Strainer, stopper and odor block in one",
+      "Stainless steel and brass build",
+      "Removable basket is easy to empty"
+    ],
+    "cons": [
+      "Fits standard 3.5 inch US drains only, measure yours first"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0D65JFRX4",
+    "category": "Kitchen",
+    "categoryId": "kitchen",
+    "updatedAt": "2026-09-30",
+    "guides": [
+      "everyday-gadgets"
+    ]
+  },
+  {
+    "id": "us-chefaide-5-piece-silicone-spatula-set",
+    "slug": "chefaide-5-piece-silicone-spatula-set",
+    "market": "us",
+    "platform": "amazon",
+    "title": "ChefAide 5-Piece Silicone Spatula Set",
+    "summary": "A set of five one-piece silicone spatulas in different sizes. Heat resistant and gentle on nonstick cookware.",
+    "pros": [
+      "Seamless one-piece design, no crevices",
+      "Safe for nonstick pans",
+      "Five sizes cover most tasks"
+    ],
+    "cons": [
+      "Silicone can stain with strongly colored sauces"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0CHGFG64S",
+    "category": "Kitchen",
+    "categoryId": "kitchen",
+    "updatedAt": "2026-09-30",
+    "guides": [
+      "everyday-gadgets"
+    ]
+  },
+  {
+    "id": "us-electric-salt-and-pepper-grinder-set",
+    "slug": "electric-salt-and-pepper-grinder-set",
+    "market": "us",
+    "platform": "amazon",
+    "title": "Electric Salt and Pepper Grinder Set",
+    "summary": "A battery-powered pair of salt and pepper mills you operate with one hand. Has adjustable coarseness and a small LED light to see what you are seasoning.",
+    "pros": [
+      "One-hand operation",
+      "Adjustable coarseness",
+      "Built-in LED light"
+    ],
+    "cons": [
+      "Needs batteries",
+      "Plastic body, not a traditional mill"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0DJSQQ1ZW",
+    "category": "Kitchen",
+    "categoryId": "kitchen",
+    "updatedAt": "2026-09-30",
+    "guides": [
+      "everyday-gadgets"
+    ]
+  },
+  {
+    "id": "us-asus-nuc-14-essential-mini-pc",
+    "slug": "asus-nuc-14-essential-mini-pc",
+    "market": "us",
+    "platform": "amazon",
+    "title": "ASUS NUC 14 Essential Mini PC",
+    "summary": "A small desktop PC with an Intel N150 processor, 16GB of DDR5 memory and a 512GB SSD, running Windows 11 Pro. Good for office work, browsing and media at very low power.",
+    "pros": [
+      "Tiny footprint, low power use",
+      "16GB RAM and 512GB SSD included",
+      "Wi-Fi 6E and 2.5G Ethernet",
+      "Can drive multiple 4K displays"
+    ],
+    "cons": [
+      "Entry-level processor, not for heavy gaming or video editing",
+      "Memory is a single channel"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0FN4B58NX",
+    "category": "Computers & Accessories",
+    "categoryId": "computers-accessories",
+    "updatedAt": "2026-09-30",
+    "image": "https://dlcdnwebimgs.asus.com/gain/a0623024-7ef1-432c-9f35-87d4dd8609e6/",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-msi-codex-z2-gaming-desktop-rtx-5070",
+    "slug": "msi-codex-z2-gaming-desktop-rtx-5070",
+    "market": "us",
+    "platform": "amazon",
+    "title": "MSI Codex Z2 Gaming Desktop (RTX 5070)",
+    "summary": "A prebuilt gaming tower with a Ryzen 7 8700F, GeForce RTX 5070, 32GB of DDR5 and a 2TB SSD. Ready to play with Windows 11 Home.",
+    "pros": [
+      "RTX 5070 graphics",
+      "32GB DDR5 and 2TB SSD",
+      "Arrives assembled with Windows installed"
+    ],
+    "cons": [
+      "Big and heavy compared to mini PCs",
+      "Check the current price against building your own"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0F15TM77B",
+    "category": "Computers & Accessories",
+    "categoryId": "computers-accessories",
+    "updatedAt": "2026-09-30",
+    "image": "https://storage-asset.msi.com/global/picture/product/product_17502853412122275bc46378e2379bb6f1789024bf.webp",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-kotin-prebuilt-gaming-pc-rtx-5070-ryzen-7-9700x",
+    "slug": "kotin-prebuilt-gaming-pc-rtx-5070-ryzen-7-9700x",
+    "market": "us",
+    "platform": "amazon",
+    "title": "KOTIN Prebuilt Gaming PC (RTX 5070, Ryzen 7 9700X)",
+    "summary": "A prebuilt gaming PC with an RTX 5070 12GB, Ryzen 7 9700X, 32GB DDR5 and 1TB SSD. Comes with liquid cooling, a strong power supply and a small built-in status display.",
+    "pros": [
+      "RTX 5070 and Ryzen 7 9700X",
+      "360mm liquid cooler and 850W Gold PSU",
+      "Wi-Fi 7",
+      "Built-in status screen"
+    ],
+    "cons": [
+      "Less-known brand than the big names, so read recent buyer reviews",
+      "1TB of storage fills up fast"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0GQZ2PKBM",
+    "category": "Computers & Accessories",
+    "categoryId": "computers-accessories",
+    "updatedAt": "2026-09-30",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-razer-orochi-v2-wireless-gaming-mouse",
+    "slug": "razer-orochi-v2-wireless-gaming-mouse",
+    "market": "us",
+    "platform": "amazon",
+    "title": "Razer Orochi V2 Wireless Gaming Mouse",
+    "summary": "A compact, lightweight wireless mouse that connects by Bluetooth or Razer HyperSpeed. Runs on a single AA or AAA battery with very long battery life.",
+    "pros": [
+      "Up to 950 hours on Bluetooth",
+      "Two wireless modes",
+      "Lightweight and compact",
+      "18K DPI sensor"
+    ],
+    "cons": [
+      "Small shape is not ideal for large hands",
+      "Uses a replaceable battery, not built-in"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0916N2LPZ",
+    "category": "Computers & Accessories",
+    "categoryId": "computers-accessories",
+    "updatedAt": "2026-09-30",
+    "image": "https://assets2.razerzone.com/images/pnx.assets/0829f8a857e741cf808ff1ff6410e9fc/razer-orochi-black-nocompress.webp",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-razer-basilisk-v3-x-hyperspeed-wireless-mouse",
+    "slug": "razer-basilisk-v3-x-hyperspeed-wireless-mouse",
+    "market": "us",
+    "platform": "amazon",
+    "title": "Razer Basilisk V3 X HyperSpeed Wireless Mouse",
+    "summary": "A full-size ergonomic wireless mouse with 9 programmable controls, Bluetooth and HyperSpeed connections and RGB lighting.",
+    "pros": [
+      "9 programmable controls",
+      "Up to 285 hours on HyperSpeed",
+      "Ergonomic right-hand shape",
+      "Mechanical switches rated for 60M clicks"
+    ],
+    "cons": [
+      "Right-handed design",
+      "Larger and heavier than ultralight mice"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0BXBC26X8",
+    "category": "Computers & Accessories",
+    "categoryId": "computers-accessories",
+    "updatedAt": "2026-09-30",
+    "image": "https://assets2.razerzone.com/images/pnx.assets/b4d9a0ff021ebff4fd2eaabd6c8b9283/razer-basilisk-v3-x-hyperspeed-og-image-1200x630.webp",
+    "guides": [
+      "weekly-finds"
+    ]
+  },
+  {
+    "id": "us-razer-viper-v3-hyperspeed-wireless-mouse",
+    "slug": "razer-viper-v3-hyperspeed-wireless-mouse",
+    "market": "us",
+    "platform": "amazon",
+    "title": "Razer Viper V3 HyperSpeed Wireless Mouse",
+    "summary": "An 82g wireless esports-style mouse with a 30K DPI sensor and up to 280 hours of battery life. Built for fast, precise aiming.",
+    "pros": [
+      "30K DPI optical sensor",
+      "Up to 280 hours of battery",
+      "Low-latency HyperSpeed wireless",
+      "Mechanical switches rated for 60M clicks"
+    ],
+    "cons": [
+      "Only 6 programmable buttons",
+      "Shape favors claw or fingertip grips"
+    ],
+    "currency": "USD",
+    "productUrl": "https://www.amazon.com/dp/B0CF4DJM7F",
+    "category": "Computers & Accessories",
+    "categoryId": "computers-accessories",
+    "updatedAt": "2026-09-30",
+    "image": "https://assets2.razerzone.com/images/pnx.assets/9c81c0db109f13be2bafaf390e15de46/razer-viper-v3-hyperspeed-og.webp",
+    "guides": [
+      "weekly-finds"
+    ]
+  }
+]

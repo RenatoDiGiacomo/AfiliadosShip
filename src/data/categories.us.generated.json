@@ -1,0 +1,12 @@
+[
+  {
+    "id": "kitchen",
+    "name": "Kitchen",
+    "emoji": "🍳"
+  },
+  {
+    "id": "computers-accessories",
+    "name": "Computers & Accessories",
+    "emoji": "💻"
+  }
+]

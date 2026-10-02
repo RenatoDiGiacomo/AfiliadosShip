@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isMarket } from "@/data/markets";
+import { ACTIVE_MARKETS } from "@/lib/active";
 import { MARKET_COOKIE, getCountry, resolveMarket } from "@/lib/geo";
 
 const ONE_YEAR = 60 * 60 * 24 * 365;
@@ -18,11 +19,13 @@ export function middleware(req: NextRequest) {
     return res;
   }
 
-  const market = resolveMarket(
+  let market = resolveMarket(
     req.cookies.get(MARKET_COOKIE)?.value,
     getCountry(req.headers),
     process.env.DEFAULT_MARKET,
   );
+  // Mercado ainda sem produtos: leva o visitante ao primeiro mercado ativo.
+  if (ACTIVE_MARKETS.length > 0 && !ACTIVE_MARKETS.includes(market)) market = ACTIVE_MARKETS[0];
   url.pathname = `/${market}`;
   url.search = "";
   const res = NextResponse.redirect(url, 307);

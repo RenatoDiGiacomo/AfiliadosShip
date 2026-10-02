@@ -92,7 +92,7 @@ interface Product {
 - Cor por mercado via CSS vars `--brand`/`--brand-dark` (definidas no layout): BR roxo, US verde. Botão de compra sempre verde.
 - Rotas: `/[market]` (home), `/categoria/[id]`, `/busca?q=` (noindex), `/produto/[slug]`, `/guia/[slug]`.
 - Categorias em `src/data/categories.ts` (ids compartilhados entre mercados; também nomeiam `public/placeholders/<id>.svg`).
-- Catálogo de exemplo gerado por `src/data/sample.ts` (linhas compactas). Produtos reais devem ser objetos completos em `products.<market>.ts`.
+- Não há dados de exemplo: o catálogo vem só de `catalog/<mercado>.csv` → `npm run import` → `src/data/catalog.<mercado>.json`.
 - Preço: só aparece no BR e apenas se `price` for preenchido manualmente (rotulado "Preço de referência"). Nunca mostrar preço de Amazon/eBay.
 
 ## Imagens
@@ -107,8 +107,8 @@ interface Product {
 
 ## Catálogo (como produtos entram no site)
 - Fonte de verdade: planilhas `catalog/br.csv` e `catalog/us.csv`. `npm run import` valida e gera `src/data/catalog.<mercado>.json` (não editar o JSON à mão).
-- Com o JSON vazio (`[]`) o site usa os produtos de exemplo (`src/data/sample.ts`); com pelo menos 1 produto, os exemplos do mercado somem.
-- Guias: metadados em `guides.<mercado>.ts`; a lista de produtos vem da coluna `guias` do CSV (slug do guia). Sem produtos marcados, usa `productIds` (exemplos).
+- Com o JSON vazio (`[]`) o mercado mostra "em breve" (noindex, fora do sitemap). O import grava `src/data/markets.active.json` (mercados com produtos); o middleware e o seletor usam essa lista para não mandar ninguém a um mercado vazio.
+- Guias: metadados em `guides.<mercado>.ts`; a lista de produtos vem da coluna `guias` do CSV (slug do guia). Guias sem produtos marcados não aparecem no site.
 - Só aparecem categorias com produtos (`getCategories`).
 - Amazon/eBay: o importador normaliza a URL (`/dp/ASIN`, `/itm/ID`) e ignora `preco`. Amazon/eBay não usam `link_afiliado` (o código monta pelo env).
 - Processo completo: `ROTEIRO-PRODUTOS.md`.
@@ -165,3 +165,17 @@ e crescer via SEO orgânico. Recebimento dos afiliados US em dólar (Nomad).
 - Não colocar chaves, tags ou tokens no repositório.
 - Não misturar produtos BR e US no mesmo mercado.
 - Não adicionar dependências pesadas sem necessidade (site precisa ser rápido).
+## SEO e divulgação (docs/)
+- `docs/search-console.md`, `docs/cronograma-30-dias.md`, `docs/pinterest-guia.md` (e `.pdf`).
+- Páginas legais: `/us/privacy`, `/us/terms` (rewrite de `/us/privacidade` e `/us/termos`); `/br/privacidade`, `/br/termos`. Use `legalPath()` de `src/lib/paths.ts`.
+- Open Graph: `opengraph-image.tsx` (home, produto, guia) gera cartão 1000x1500 só com texto (next/og). Produto e guia usam `og:type=article` (Rich Pins de artigo; Rich Pin de produto exigiria preço).
+- hreflang só entre mercados com produtos, com `x-default` → /us. `robots.ts` bloqueia `/go/` e `/busca`.
+- Variáveis: `GOOGLE_SITE_VERIFICATION` e `PINTEREST_SITE_VERIFICATION` (meta tags), `SITE_URL`, `AMAZON_TAG`.
+- Sem `Review` no JSON-LD: exigiria nota (rating) real que o site não tem. Não inventar.
+
+- O botão de troca de mercado foi removido do header (decisão do dono): cada visitante vai ao mercado do seu país. `/?market=br|us` continua funcionando por URL; `MarketSwitcher.tsx` ficou sem uso.
+
+## Shopee automática (API de afiliados)
+- `npm run shopee` preenche `imagem` e `link_afiliado` das linhas Shopee do `catalog/br.csv` pela API aberta da Shopee (`--force` refaz, `--dry` só mostra). Depois `npm run import`.
+- Credenciais `SHOPEE_APP_ID` e `SHOPEE_SECRET` só em `.env.local` (fora do Git). `link_produto` no formato `https://shopee.com.br/product/<loja>/<item>`.
+- Testado só contra um servidor falso (assinatura, leitura e gravação do CSV); a chamada real à API ainda não foi testada.

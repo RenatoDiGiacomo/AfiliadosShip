@@ -5,12 +5,14 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductGallery } from "@/components/ProductGallery";
 import { JsonLd } from "@/components/JsonLd";
+import { PlatformLogo } from "@/components/PlatformLogo";
 import { PLATFORM_LABEL, SITE_URL } from "@/data/markets";
 import { getProduct, getProducts } from "@/lib/data";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
 import { getProductMedia } from "@/lib/media";
 import { placeholderFor } from "@/lib/placeholder";
+import { pageOpenGraph } from "@/lib/seo";
 import { MARKET_IDS } from "@/data/markets";
 
 type Params = Promise<{ market: string; slug: string }>;
@@ -29,6 +31,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title: product.title,
     description: product.summary,
     alternates: { canonical: `/${market}/produto/${slug}` },
+    openGraph: pageOpenGraph(market, { title: product.title, description: product.summary, path: `/${market}/produto/${slug}` }),
   };
 }
 
@@ -61,6 +64,7 @@ export default async function ProductPage({ params }: { params: Params }) {
             {
               "@type": "Product",
               name: product.title,
+              url,
               description: product.summary,
               category: product.category,
               ...(hasReal ? { image: images } : {}),
@@ -68,7 +72,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           ],
         }}
       />
-      <nav className="text-sm text-slate-500">
+      <nav className="text-sm text-[var(--fg-soft)]">
         <Link href={`/${market}`} className="hover:underline">
           {t.home}
         </Link>{" "}
@@ -77,14 +81,16 @@ export default async function ProductPage({ params }: { params: Params }) {
       <div className="grid gap-8 md:grid-cols-2">
         <ProductGallery images={images} alt={product.title} fallback={placeholderFor(product)} />
         <header>
-          <p className="text-xs uppercase tracking-wide text-slate-500">
+          <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-[var(--fg-soft)]">
+            <PlatformLogo platform={product.platform} size={20} />
             {product.category} · {PLATFORM_LABEL[product.platform]}
           </p>
-          <h1 className="mt-1 text-3xl font-extrabold text-slate-900">{product.title}</h1>
-          <p className="mt-3 text-slate-600">{product.summary}</p>
+          <h1 className="mt-1 text-3xl font-extrabold text-[var(--fg)]">{product.title}</h1>
+          <p className="mt-3 text-[var(--fg-muted)]">{product.summary}</p>
           <div className="mt-6 space-y-3">
             <AffiliateButton product={product} />
-            <p className="text-xs text-slate-500">{t.disclosure}</p>
+            <p className="text-xs text-[var(--fg-soft)]">{t.disclosure}</p>
+            {t.amazonNotice && product.platform === "amazon" && <p className="text-xs text-[var(--fg-soft)]">{t.amazonNotice}</p>}
           </div>
         </header>
       </div>
@@ -108,7 +114,7 @@ export default async function ProductPage({ params }: { params: Params }) {
         </section>
       </div>
 
-      <p className="text-xs text-slate-400">
+      <p className="text-xs text-[var(--fg-soft)]">
         {t.updatedOn} {product.updatedAt}
       </p>
 

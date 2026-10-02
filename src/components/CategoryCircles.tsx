@@ -10,7 +10,7 @@ export function CategoryCircles({ market }: { market: Market }) {
           <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--brand)] text-3xl shadow transition group-hover:scale-110">
             {c.emoji}
           </span>
-          <span className="text-center text-xs font-medium text-slate-700">{c.name}</span>
+          <span className="text-center text-xs font-medium text-[var(--fg-muted)]">{c.name}</span>
         </Link>
       ))}
     </div>
