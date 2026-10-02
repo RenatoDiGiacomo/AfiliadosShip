@@ -15,7 +15,7 @@ export async function GuideCard({ guide }: { guide: Guide }) {
 
   return (
     <Link
-      href={`/${guide.market}/guia/${guide.slug}`}
+      href={`/guia/${guide.slug}`}
       className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
     >
       <div className="grid grid-cols-4 gap-px bg-slate-200">

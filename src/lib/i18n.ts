@@ -14,6 +14,9 @@ export interface Dict {
   categories: string;
   featured: string;
   seeAll: string;
+  allFinds: string;
+  allFindsTitle: string;
+  allFindsIntro: string;
   fromStore: (store: string) => string;
   readReview: string;
   buyOn: (store: string) => string;
@@ -57,6 +60,9 @@ export const dict: Record<Market, Dict> = {
     categories: "Categorias",
     featured: "Achados em destaque",
     seeAll: "Ver todos",
+    allFinds: "Todos os achados",
+    allFindsTitle: "Todos os achados",
+    allFindsIntro: "Todos os produtos do site, do mais novo para o mais antigo. É a lista dos achados que aparecem nos nossos vídeos.",
     fromStore: (store) => (store === "Shopee" ? "Em destaque na Shopee" : `Em destaque no ${store}`),
     readReview: "Ler análise",
     buyOn: (store) => (store === "Shopee" ? "Ver na Shopee" : `Ver no ${store}`),
@@ -109,6 +115,9 @@ export const dict: Record<Market, Dict> = {
     categories: "Categories",
     featured: "Featured finds",
     seeAll: "See all",
+    allFinds: "All finds",
+    allFindsTitle: "All finds",
+    allFindsIntro: "Every product on the site, newest first.",
     fromStore: (store) => `Featured on ${store}`,
     readReview: "Read review",
     buyOn: (store) => `View on ${store}`,

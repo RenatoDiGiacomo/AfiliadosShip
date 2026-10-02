@@ -2,28 +2,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components/ProductCard";
-import { MARKET_IDS } from "@/data/markets";
 import { getCategories, getCategory, getProductsByCategory } from "@/lib/data";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
 
-type Params = Promise<{ market: string; id: string }>;
+type Params = Promise<{ id: string }>;
 
 export const dynamicParams = false;
 export const revalidate = 86400;
 export const generateStaticParams = () =>
-  MARKET_IDS.flatMap((market) => getCategories(market).map((c) => ({ market, id: c.id })));
+  getCategories("br").map((c) => ({ id: c.id }));
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const { id } = await params;
   const category = getCategory(market, id);
   if (!category) return {};
-  return { title: category.name, alternates: { canonical: `/${market}/categoria/${id}` } };
+  return { title: category.name, alternates: { canonical: `/categoria/${id}` } };
 }
 
 export default async function CategoryPage({ params }: { params: Params }) {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const { id } = await params;
   const category = getCategory(market, id);
   if (!category) notFound();
@@ -33,7 +32,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
   return (
     <div className="space-y-6">
       <nav className="text-sm text-[var(--fg-soft)]">
-        <Link href={`/${market}`} className="hover:underline">
+        <Link href="/" className="hover:underline">
           {t.home}
         </Link>{" "}
         / {category.name}
@@ -46,7 +45,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
         {getCategories(market).map((c) => (
           <Link
             key={c.id}
-            href={`/${market}/categoria/${c.id}`}
+            href={`/categoria/${c.id}`}
             className={`rounded-full border px-3 py-1 text-sm ${
               c.id === id
                 ? "border-[var(--brand)] bg-[var(--brand)] text-[var(--on-brand)]"

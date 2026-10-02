@@ -12,7 +12,7 @@ import { ProductImage } from "./ProductImage";
 export async function ProductRow({ product, rank }: { product: Product; rank: number }) {
   const t = dict[product.market];
   const { images } = await getProductMedia(product);
-  const href = `/${product.market}/produto/${product.slug}`;
+  const href = `/produto/${product.slug}`;
 
   return (
     <article className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-row">

@@ -3,34 +3,34 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductRow } from "@/components/ProductRow";
-import { MARKET_IDS, SITE_URL } from "@/data/markets";
+import { SITE_URL } from "@/data/markets";
 import { getGuide, getGuideProducts, getGuides } from "@/lib/data";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
 import { pageOpenGraph } from "@/lib/seo";
 
-type Params = Promise<{ market: string; slug: string }>;
+type Params = Promise<{ slug: string }>;
 
 export const dynamicParams = false;
 export const revalidate = 86400;
 export const generateStaticParams = () =>
-  MARKET_IDS.flatMap((market) => getGuides(market).map((g) => ({ market, slug: g.slug })));
+  getGuides("br").map((g) => ({ slug: g.slug }));
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const { slug } = await params;
   const guide = getGuide(market, slug);
   if (!guide) return {};
   return {
     title: guide.title,
     description: guide.description,
-    alternates: { canonical: `/${market}/guia/${slug}` },
-    openGraph: pageOpenGraph(market, { title: guide.title, description: guide.description, path: `/${market}/guia/${slug}` }),
+    alternates: { canonical: `/guia/${slug}` },
+    openGraph: pageOpenGraph(market, { title: guide.title, description: guide.description, path: `/guia/${slug}` }),
   };
 }
 
 export default async function GuidePage({ params }: { params: Params }) {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const { slug } = await params;
   const guide = getGuide(market, slug);
   if (!guide) notFound();
@@ -46,8 +46,8 @@ export default async function GuidePage({ params }: { params: Params }) {
             {
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: t.home, item: `${SITE_URL}/${market}` },
-                { "@type": "ListItem", position: 2, name: guide.title, item: `${SITE_URL}/${market}/guia/${slug}` },
+                { "@type": "ListItem", position: 1, name: t.home, item: `${SITE_URL}` },
+                { "@type": "ListItem", position: 2, name: guide.title, item: `${SITE_URL}/guia/${slug}` },
               ],
             },
             {
@@ -57,14 +57,14 @@ export default async function GuidePage({ params }: { params: Params }) {
                 "@type": "ListItem",
                 position: i + 1,
                 name: p.title,
-                url: `${SITE_URL}/${market}/produto/${p.slug}`,
+                url: `${SITE_URL}/produto/${p.slug}`,
               })),
             },
           ],
         }}
       />
       <nav className="text-sm text-[var(--fg-soft)]">
-        <Link href={`/${market}`} className="hover:underline">
+        <Link href="/" className="hover:underline">
           {t.home}
         </Link>{" "}
         / {guide.title}

@@ -25,4 +25,8 @@ export function isMarket(value: unknown): value is Market {
   return typeof value === "string" && value in MARKETS;
 }
 
-export const SITE_URL = process.env.SITE_URL ?? "http://localhost:3000";
+// Endereço público: SITE_URL (se definida) > domínio de produção da Vercel (variável de sistema) > localhost (dev).
+const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+export const SITE_URL = (
+  process.env.SITE_URL ?? (vercelProd ? `https://${vercelProd}` : "http://localhost:3000")
+).replace(/\/+$/, "");

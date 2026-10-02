@@ -17,7 +17,7 @@ const money = (p: Product) =>
 export async function ProductCard({ product }: { product: Product }) {
   const t = dict[product.market];
   const { images } = await getProductMedia(product);
-  const href = `/${product.market}/produto/${product.slug}`;
+  const href = `/produto/${product.slug}`;
   // Preço de referência só para o Brasil e apenas se você o preencher manualmente (nunca Amazon/eBay).
   const price = product.market === "br" ? money(product) : undefined;
 

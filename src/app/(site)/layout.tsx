@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MARKETS, MARKET_IDS, SITE_URL } from "@/data/markets";
+import { MARKETS, SITE_URL } from "@/data/markets";
 import { getCategories } from "@/lib/data";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
@@ -36,12 +36,9 @@ const YOUTUBE: Record<string, string | null> = {
   us: null,
 };
 
-export function generateStaticParams() {
-  return MARKET_IDS.map((market) => ({ market }));
-}
 
-export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const market = await getMarket(params);
+export async function generateMetadata(): Promise<Metadata> {
+  const market = await getMarket();
   const t = dict[market];
   return {
     metadataBase: new URL(SITE_URL),
@@ -56,12 +53,10 @@ export async function generateMetadata({ params }: { params: Promise<{ market: s
 
 export default async function MarketLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ market: string }>;
 }) {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const t = dict[market];
   const categories = getCategories(market);
   const banner = BANNER[market];
@@ -73,7 +68,7 @@ export default async function MarketLayout({
 
         {banner && (
           <div className="bg-[#0B1426]">
-            <Link href={`/${market}`} className="mx-auto flex max-w-6xl justify-center" aria-label={t.siteName}>
+            <Link href="/" className="mx-auto flex max-w-6xl justify-center" aria-label={t.siteName}>
               <Image
                 src={banner.src}
                 width={banner.w}
@@ -90,11 +85,11 @@ export default async function MarketLayout({
         <header className="sticky top-0 z-30 bg-[var(--header-bg)] shadow-sm">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 gap-y-2 px-4 py-3 sm:flex-nowrap sm:gap-6">
             {!banner && (
-              <Link href={`/${market}`} className="mr-auto shrink-0 text-lg font-extrabold text-[var(--logo)] sm:mr-0 sm:text-2xl">
+              <Link href="/" className="mr-auto shrink-0 text-lg font-extrabold text-[var(--logo)] sm:mr-0 sm:text-2xl">
                 {t.siteName}
               </Link>
             )}
-            <form action={`/${market}/busca`} method="get" role="search" className="order-last flex w-full sm:order-none sm:w-auto sm:flex-1">
+            <form action={`/busca`} method="get" role="search" className="order-last flex w-full sm:order-none sm:w-auto sm:flex-1">
               <input
                 type="search"
                 name="q"
@@ -113,11 +108,14 @@ export default async function MarketLayout({
           </div>
           <nav className="border-t border-white/10">
             <div className="mx-auto flex max-w-6xl gap-5 overflow-x-auto px-4 py-2 text-sm font-medium text-[var(--header-fg)]">
-              <Link href={`/${market}`} className="shrink-0 hover:text-[var(--logo)]">
+              <Link href="/" className="shrink-0 hover:text-[var(--logo)]">
                 {t.home}
               </Link>
+              <Link href="/achados" className="shrink-0 hover:text-[var(--logo)]">
+                {t.allFinds}
+              </Link>
               {categories.map((c) => (
-                <Link key={c.id} href={`/${market}/categoria/${c.id}`} className="shrink-0 hover:text-[var(--logo)]">
+                <Link key={c.id} href={`/categoria/${c.id}`} className="shrink-0 hover:text-[var(--logo)]">
                   {c.name}
                 </Link>
               ))}
@@ -148,7 +146,7 @@ export default async function MarketLayout({
               <ul className="mt-2 space-y-1 text-sm text-white/80">
                 {categories.map((c) => (
                   <li key={c.id}>
-                    <Link href={`/${market}/categoria/${c.id}`} className="hover:underline">
+                    <Link href={`/categoria/${c.id}`} className="hover:underline">
                       {c.name}
                     </Link>
                   </li>

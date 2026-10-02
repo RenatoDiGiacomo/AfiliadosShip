@@ -1,9 +1,6 @@
-import { notFound } from "next/navigation";
-import { isMarket } from "@/data/markets";
 import type { Market } from "@/data/types";
 
-export async function getMarket(params: Promise<{ market: string }>): Promise<Market> {
-  const { market } = await params;
-  if (!isMarket(market)) notFound();
-  return market;
+/** O site é só do Brasil: sem /br na URL, o mercado é sempre "br". (Argumento mantido para não mexer em todas as páginas.) */
+export async function getMarket(_params?: unknown): Promise<Market> {
+  return "br";
 }

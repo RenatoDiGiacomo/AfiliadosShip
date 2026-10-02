@@ -9,13 +9,11 @@ import { getMarket } from "@/lib/market";
 export const metadata: Metadata = { robots: { index: false, follow: true } };
 
 export default async function SearchPage({
-  params,
   searchParams,
 }: {
-  params: Promise<{ market: string }>;
   searchParams: Promise<{ q?: string }>;
 }) {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const { q = "" } = await searchParams;
   const query = q.trim().slice(0, 80);
   const t = dict[market];
@@ -24,7 +22,7 @@ export default async function SearchPage({
   return (
     <div className="space-y-6">
       <nav className="text-sm text-[var(--fg-soft)]">
-        <Link href={`/${market}`} className="hover:underline">
+        <Link href="/" className="hover:underline">
           {t.home}
         </Link>{" "}
         / {t.searchTitle}

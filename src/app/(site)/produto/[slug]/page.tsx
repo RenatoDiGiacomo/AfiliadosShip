@@ -13,35 +13,34 @@ import { getMarket } from "@/lib/market";
 import { getProductMedia } from "@/lib/media";
 import { placeholderFor } from "@/lib/placeholder";
 import { pageOpenGraph } from "@/lib/seo";
-import { MARKET_IDS } from "@/data/markets";
 
-type Params = Promise<{ market: string; slug: string }>;
+type Params = Promise<{ slug: string }>;
 
 export const dynamicParams = false;
 export const revalidate = 86400;
 export const generateStaticParams = () =>
-  MARKET_IDS.flatMap((market) => getProducts(market).map((p) => ({ market, slug: p.slug })));
+  getProducts("br").map((p) => ({ slug: p.slug }));
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const { slug } = await params;
   const product = getProduct(market, slug);
   if (!product) return {};
   return {
     title: product.title,
     description: product.summary,
-    alternates: { canonical: `/${market}/produto/${slug}` },
-    openGraph: pageOpenGraph(market, { title: product.title, description: product.summary, path: `/${market}/produto/${slug}` }),
+    alternates: { canonical: `/produto/${slug}` },
+    openGraph: pageOpenGraph(market, { title: product.title, description: product.summary, path: `/produto/${slug}` }),
   };
 }
 
 export default async function ProductPage({ params }: { params: Params }) {
-  const market = await getMarket(params);
+  const market = await getMarket();
   const { slug } = await params;
   const product = getProduct(market, slug);
   if (!product) notFound();
   const t = dict[market];
-  const url = `${SITE_URL}/${market}/produto/${slug}`;
+  const url = `${SITE_URL}/produto/${slug}`;
   const { images, hasReal } = await getProductMedia(product);
   const related = getProducts(market)
     .filter((p) => p.id !== product.id)
@@ -57,7 +56,7 @@ export default async function ProductPage({ params }: { params: Params }) {
             {
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: t.home, item: `${SITE_URL}/${market}` },
+                { "@type": "ListItem", position: 1, name: t.home, item: `${SITE_URL}` },
                 { "@type": "ListItem", position: 2, name: product.title, item: url },
               ],
             },
@@ -73,7 +72,7 @@ export default async function ProductPage({ params }: { params: Params }) {
         }}
       />
       <nav className="text-sm text-[var(--fg-soft)]">
-        <Link href={`/${market}`} className="hover:underline">
+        <Link href="/" className="hover:underline">
           {t.home}
         </Link>{" "}
         / {product.title}

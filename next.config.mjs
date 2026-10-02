@@ -1,20 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
-  // /us/privacy e /us/terms são apelidos das páginas internas (mesma rota dos dois mercados).
-  async rewrites() {
-    return [
-      { source: "/us/privacy", destination: "/us/privacidade" },
-      { source: "/us/terms", destination: "/us/termos" },
-    ];
-  },
-  // Evita conteúdo duplicado: só o caminho canônico de cada mercado fica acessível.
+  // O site é só do Brasil e sem prefixo: /br/... e /us/... antigos continuam funcionando e levam ao endereço novo.
   async redirects() {
     return [
-      { source: "/us/privacidade", destination: "/us/privacy", permanent: true },
-      { source: "/us/termos", destination: "/us/terms", permanent: true },
-      { source: "/br/privacy", destination: "/br/privacidade", permanent: true },
-      { source: "/br/terms", destination: "/br/termos", permanent: true },
+      { source: "/br", destination: "/", permanent: true },
+      { source: "/br/:path*", destination: "/:path*", permanent: true },
+      { source: "/us", destination: "/", permanent: true },
+      { source: "/us/:path*", destination: "/", permanent: true },
     ];
   },
 };

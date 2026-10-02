@@ -179,3 +179,10 @@ e crescer via SEO orgânico. Recebimento dos afiliados US em dólar (Nomad).
 - `npm run shopee` preenche `imagem` e `link_afiliado` das linhas Shopee do `catalog/br.csv` pela API aberta da Shopee (`--force` refaz, `--dry` só mostra). Depois `npm run import`.
 - Credenciais `SHOPEE_APP_ID` e `SHOPEE_SECRET` só em `.env.local` (fora do Git). `link_produto` no formato `https://shopee.com.br/product/<loja>/<item>`.
 - Testado só contra um servidor falso (assinatura, leitura e gravação do CSV); a chamada real à API ainda não foi testada.
+
+## Site só Brasil, sem /br (2026-10-02)
+- As rotas ficam na raiz (`src/app/(site)/`): `/`, `/achados`, `/produto/<slug>`, `/categoria/<id>`, `/guia/<slug>`, `/busca`, `/privacidade`, `/termos`. `getMarket()` sempre devolve "br" (o argumento é ignorado).
+- `/br/...` e `/us/...` antigos redirecionam (308) para o endereço novo (`next.config.mjs`). O middleware de geo foi removido.
+- `/achados` lista todos os produtos do mais novo para o mais antigo (o último do CSV vem primeiro). É o link único do perfil do canal.
+- Os dados dos EUA (`catalog/us.csv`, `products.us.ts`) continuam no repositório, mas não são mais servidos.
+- Se um dia voltar a ter vários mercados, recriar o segmento `[market]` e o middleware (ver histórico do git).

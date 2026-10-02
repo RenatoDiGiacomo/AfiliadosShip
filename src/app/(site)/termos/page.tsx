@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { MARKET_IDS } from "@/data/markets";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
 import { legalPath } from "@/lib/paths";
 
-export const dynamicParams = false;
-export const generateStaticParams = () => MARKET_IDS.map((market) => ({ market }));
-
-export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const market = await getMarket(params);
+export async function generateMetadata(): Promise<Metadata> {
+  const market = await getMarket();
   return { title: dict[market].terms, alternates: { canonical: legalPath(market, "terms") } };
 }
 
-export default async function Page({ params }: { params: Promise<{ market: string }> }) {
-  const market = await getMarket(params);
+export default async function Page() {
+  const market = await getMarket();
   const t = dict[market];
   return (
     <article className="mx-auto max-w-2xl space-y-4">

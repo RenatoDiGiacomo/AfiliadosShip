@@ -6,34 +6,24 @@ import { ProductCard } from "@/components/ProductCard";
 import { SelectionCarousel } from "@/components/SelectionCarousel";
 import { SectionTitle } from "@/components/SectionTitle";
 import { TrustStrip } from "@/components/TrustStrip";
-import { MARKETS, MARKET_IDS, PLATFORM_LABEL } from "@/data/markets";
+import { MARKETS, PLATFORM_LABEL } from "@/data/markets";
 import { getCategories, getGuides, getProducts } from "@/lib/data";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
 
-export const dynamicParams = false;
 export const revalidate = 86400; // atualiza imagens extraídas dos links a cada 24h
-export const generateStaticParams = () => MARKET_IDS.map((market) => ({ market }));
 
-export async function generateMetadata({ params }: { params: Promise<{ market: string }> }): Promise<Metadata> {
-  const market = await getMarket(params);
+export async function generateMetadata(): Promise<Metadata> {
+  const market = await getMarket();
   return {
-    // hreflang só entre mercados com produtos (um mercado "em breve" não entra).
-    alternates: {
-      canonical: `/${market}`,
-      languages: {
-        ...(getProducts("br").length > 0 && { "pt-BR": "/br" }),
-        ...(getProducts("us").length > 0 && { "en-US": "/us" }),
-        ...(getProducts("us").length > 0 && { "x-default": "/us" }),
-      },
-    },
+    alternates: { canonical: "/" },
     // Mercado sem produtos (página "em breve") não deve ser indexado.
     robots: getProducts(market).length === 0 ? { index: false, follow: false } : undefined,
   };
 }
 
-export default async function MarketHome({ params }: { params: Promise<{ market: string }> }) {
-  const market = await getMarket(params);
+export default async function MarketHome() {
+  const market = await getMarket();
   const t = dict[market];
   const products = getProducts(market);
   const guides = getGuides(market);
@@ -72,7 +62,7 @@ export default async function MarketHome({ params }: { params: Promise<{ market:
 
       {market === "br" && (
         <section>
-          <SectionTitle title={t.guides} href={guides[0] ? `/${market}/guia/${guides[0].slug}` : undefined} linkLabel={t.seeAll} />
+          <SectionTitle title={t.guides} href={guides[0] ? `/guia/${guides[0].slug}` : undefined} linkLabel={t.seeAll} />
           <SelectionCarousel products={products.slice(0, 5)} />
         </section>
       )}

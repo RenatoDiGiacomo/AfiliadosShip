@@ -27,7 +27,7 @@ export async function HeroBanner({ market }: { market: Market }) {
           <p className="mt-3 max-w-md text-white/85">{t.heroSub}</p>
           {guide && (
             <Link
-              href={`/${market}/guia/${guide.slug}`}
+              href={`/guia/${guide.slug}`}
               className="mt-6 inline-block rounded-full bg-[var(--cta-bg)] px-6 py-3 text-sm font-bold text-[var(--cta-fg)] transition hover:bg-[var(--cta-hover)]"
             >
               {t.heroCta}
@@ -38,7 +38,7 @@ export async function HeroBanner({ market }: { market: Market }) {
           {products.map((p, i) => (
             <Link
               key={p.id}
-              href={`/${market}/produto/${p.slug}`}
+              href={`/produto/${p.slug}`}
               aria-label={p.title}
               className="aspect-square overflow-hidden rounded-2xl bg-white shadow-md transition hover:scale-[1.03]"
             >
