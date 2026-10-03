@@ -8,5 +8,10 @@
     "id": "brinquedos",
     "name": "Brinquedos",
     "emoji": "🛍️"
+  },
+  {
+    "id": "casa-e-construcao",
+    "name": "Casa e Construção",
+    "emoji": "🏠"
   }
 ]
