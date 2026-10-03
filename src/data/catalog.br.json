@@ -435,15 +435,17 @@
     ],
     "cons": [
       "Confira as medidas e o material no anúncio",
-      "O preço e o frete mudam"
+      "O preço e o frete mudam, então veja o valor atual na Shopee"
     ],
     "currency": "BRL",
     "productUrl": "https://shopee.com.br/product/542974007/22199400760",
     "category": "Moda e acessórios",
     "categoryId": "fashion",
     "updatedAt": "2026-10-03",
-    "price": 0,
     "affiliateUrl": "https://shope.ee/an_redir?origin_link=https%3A%2F%2Fshopee.com.br%2Fproduct%2F542974007%2F22199400760&affiliate_id=18327721263&sub_id=gorrotoucaadultounissex",
-    "image": "https://down-br.img.susercontent.com/file/br-11134207-820m7-mmr4u7rf3apsc8@resize_w450_nl.webp"
+    "image": "https://down-br.img.susercontent.com/file/br-11134207-820m7-mmr4u7rf3apsc8@resize_w450_nl.webp",
+    "guides": [
+      "achados-da-semana"
+    ]
   }
 ]
