@@ -479,7 +479,116 @@
       "/produtos/beep-boop-6.webp"
     ],
     "guides": [
-      "achados-da-semana"
+      "achados-da-semana",
+      "beep-boop"
+    ]
+  },
+  {
+    "id": "br-beep-boop-tochi",
+    "slug": "beep-boop-tochi",
+    "market": "br",
+    "platform": "mercadolivre",
+    "title": "Bichinho Virtual Beep Boop Tochi Foguinho Multikids",
+    "summary": "Bichinho virtual interativo estilo Tamagotchi, modelo Tochi, o foguinho, da linha Beep Boop, da Multikids, vendido no Mercado Livre. Cada modelo é vendido separadamente.",
+    "pros": [
+      "Bichinho virtual interativo da linha Beep Boop",
+      "Modelo vendido separado, para escolher o seu personagem favorito",
+      "Vendido e entregue pelo Mercado Livre, conforme o anúncio"
+    ],
+    "cons": [
+      "Confira idade indicada, cor e o que acompanha no anúncio",
+      "Preço e prazo de entrega mudam, então veja o valor atual no Mercado Livre"
+    ],
+    "currency": "BRL",
+    "productUrl": "https://www.mercadolivre.com.br/bichinho-virtual-beep-boop-tochi-foguinho--multikids/up/MLBU4684060361",
+    "category": "Brinquedos",
+    "categoryId": "brinquedos",
+    "updatedAt": "2026-10-05",
+    "affiliateUrl": "https://meli.la/2XkV9WP",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_950274-MLB115900990333_082026-F-bichinho-virtual-beep-boop-interativo-crianca-multikids.webp",
+    "guides": [
+      "beep-boop"
+    ]
+  },
+  {
+    "id": "br-beep-boop-kirin",
+    "slug": "beep-boop-kirin",
+    "market": "br",
+    "platform": "mercadolivre",
+    "title": "Bichinho Virtual Beep Boop Kirin Unicórnio Multikids",
+    "summary": "Bichinho virtual interativo estilo Tamagotchi, modelo Kirin, o unicórnio, da linha Beep Boop, da Multikids, vendido no Mercado Livre. Cada modelo é vendido separadamente.",
+    "pros": [
+      "Bichinho virtual interativo da linha Beep Boop",
+      "Modelo vendido separado, para escolher o seu personagem favorito",
+      "Vendido e entregue pelo Mercado Livre, conforme o anúncio"
+    ],
+    "cons": [
+      "Confira idade indicada, cor e o que acompanha no anúncio",
+      "Preço e prazo de entrega mudam, então veja o valor atual no Mercado Livre"
+    ],
+    "currency": "BRL",
+    "productUrl": "https://www.mercadolivre.com.br/bichinho-virtual-beep-boop-kirin-unicornio--multikids/up/MLBU4684060391",
+    "category": "Brinquedos",
+    "categoryId": "brinquedos",
+    "updatedAt": "2026-10-05",
+    "affiliateUrl": "https://meli.la/1ifv7ax",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_881393-MLB114544719014_082026-F-bichinho-virtual-beep-boop-interativo-crianca-multikids.webp",
+    "guides": [
+      "beep-boop"
+    ]
+  },
+  {
+    "id": "br-beep-boop-mochi",
+    "slug": "beep-boop-mochi",
+    "market": "br",
+    "platform": "mercadolivre",
+    "title": "Bichinho Virtual Interativo Beep Boop Mochi Multikids Rosa e Roxo",
+    "summary": "Bichinho virtual interativo estilo Tamagotchi, modelo Mochi, nas cores rosa e roxo, da linha Beep Boop, da Multikids, vendido no Mercado Livre. Cada modelo é vendido separadamente.",
+    "pros": [
+      "Bichinho virtual interativo da linha Beep Boop",
+      "Modelo vendido separado, para escolher o seu personagem favorito",
+      "Vendido e entregue pelo Mercado Livre, conforme o anúncio"
+    ],
+    "cons": [
+      "Confira idade indicada, cor e o que acompanha no anúncio",
+      "Preço e prazo de entrega mudam, então veja o valor atual no Mercado Livre"
+    ],
+    "currency": "BRL",
+    "productUrl": "https://www.mercadolivre.com.br/bichinho-virtual-interativo-beep-boop-mochi-multikids-br2829-rosaroxo/p/MLB74655491",
+    "category": "Brinquedos",
+    "categoryId": "brinquedos",
+    "updatedAt": "2026-10-05",
+    "affiliateUrl": "https://meli.la/1Dn4wKF",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_888501-MLA113968557003_062026-F.webp",
+    "guides": [
+      "beep-boop"
+    ]
+  },
+  {
+    "id": "br-beep-boop-miao-miao",
+    "slug": "beep-boop-miao-miao",
+    "market": "br",
+    "platform": "mercadolivre",
+    "title": "Bichinho Virtual Interativo Beep Boop Miao Miao Multikids Azul e Branco",
+    "summary": "Bichinho virtual interativo estilo Tamagotchi, modelo Miao Miao, nas cores azul e branco, da linha Beep Boop, da Multikids, vendido no Mercado Livre. Cada modelo é vendido separadamente.",
+    "pros": [
+      "Bichinho virtual interativo da linha Beep Boop",
+      "Modelo vendido separado, para escolher o seu personagem favorito",
+      "Vendido e entregue pelo Mercado Livre, conforme o anúncio"
+    ],
+    "cons": [
+      "Confira idade indicada, cor e o que acompanha no anúncio",
+      "Preço e prazo de entrega mudam, então veja o valor atual no Mercado Livre"
+    ],
+    "currency": "BRL",
+    "productUrl": "https://www.mercadolivre.com.br/bichinho-virtual-interativo-multikids-beep-boop-miao-miao-para-criancas-azul-e-branco/p/MLB74062361",
+    "category": "Brinquedos",
+    "categoryId": "brinquedos",
+    "updatedAt": "2026-10-05",
+    "affiliateUrl": "https://meli.la/2NxRo3y",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_985226-MLA113471187023_062026-F.webp",
+    "guides": [
+      "beep-boop"
     ]
   }
 ]

@@ -10,6 +10,14 @@ export const guidesBR: Guide[] = [
     updatedAt: "2026-09-30",
   },
   {
+    slug: "beep-boop",
+    market: "br",
+    title: "Coleção Beep Boop",
+    description: "Bichinhos virtuais Beep Boop da Multikids, cada personagem separado.",
+    intro: "Os bichinhos virtuais da linha Beep Boop, estilo Tamagotchi, com cada personagem em um anúncio separado para você escolher o seu.",
+    updatedAt: "2026-10-05",
+  },
+  {
     slug: "utilidades-do-dia-a-dia",
     market: "br",
     title: "Utilidades para o dia a dia",
