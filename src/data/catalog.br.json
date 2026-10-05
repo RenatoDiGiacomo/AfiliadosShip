@@ -447,5 +447,39 @@
     "guides": [
       "achados-da-semana"
     ]
+  },
+  {
+    "id": "br-beep-boop-bichinho-virtual",
+    "slug": "beep-boop-bichinho-virtual",
+    "market": "br",
+    "platform": "shopee",
+    "title": "Bichinho Virtual Beep Boop Brinquedo Interativo tipo Tamagotchi Multikids",
+    "summary": "Bichinho virtual interativo estilo Tamagotchi, da linha Beep Boop da Multikids, vendido na Shopee. Segundo as imagens do anúncio, tem mini jogos, sons e animações e acompanha corrente para usar de chaveiro. Veja o modelo, as fotos e as avaliações no anúncio.",
+    "pros": [
+      "Mini jogos, sons e animações, segundo o anúncio",
+      "Acompanha corrente para usar de chaveiro",
+      "Linha com 4 modelos"
+    ],
+    "cons": [
+      "Confira o modelo, a cor e a idade indicada no anúncio",
+      "O anúncio diz original: confirme o vendedor e leia as avaliações antes de comprar"
+    ],
+    "currency": "BRL",
+    "productUrl": "https://shopee.com.br/product/773089522/58215925864",
+    "category": "Brinquedos",
+    "categoryId": "brinquedos",
+    "updatedAt": "2026-10-05",
+    "affiliateUrl": "https://s.shopee.com.br/40h3zCqvxp",
+    "image": "/produtos/beep-boop.webp",
+    "images": [
+      "/produtos/beep-boop-2.webp",
+      "/produtos/beep-boop-3.webp",
+      "/produtos/beep-boop-4.webp",
+      "/produtos/beep-boop-5.webp",
+      "/produtos/beep-boop-6.webp"
+    ],
+    "guides": [
+      "achados-da-semana"
+    ]
   }
 ]

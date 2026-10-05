@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CampaignBanner } from "@/components/CampaignBanner";
 import { CategoryCircles } from "@/components/CategoryCircles";
 import { GuideCard } from "@/components/GuideCard";
 import { HeroBanner } from "@/components/HeroBanner";
@@ -40,6 +41,7 @@ export default async function MarketHome() {
 
   return (
     <div className="space-y-12">
+      <CampaignBanner market={market} />
       <HeroBanner market={market} />
 
       {market !== "br" && getCategories(market).length > 0 && (

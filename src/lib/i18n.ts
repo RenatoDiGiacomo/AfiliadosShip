@@ -9,6 +9,11 @@ export interface Dict {
   heroTitle: string;
   heroSub: string;
   heroCta: string;
+  heroFeaturedBadge: string;
+  campaignTitle: string;
+  campaignSub: string;
+  campaignChips: string[];
+  campaignCta: string;
   guides: string;
   guidesNav: string;
   categories: string;
@@ -55,6 +60,11 @@ export const dict: Record<Market, Dict> = {
     heroTitle: "Os melhores achados da web",
     heroSub: "Produtos selecionados do Mercado Livre e da Shopee. Você compra direto na loja.",
     heroCta: "Ver seleção",
+    heroFeaturedBadge: "Agora no Brasil",
+    campaignTitle: "Beep Boop, o bichinho virtual que vai com você",
+    campaignSub: "Cuide, brinque e divirta-se com mini jogos, sons e animações. Acompanha corrente para usar de chaveiro. Veja modelos e detalhes no anúncio da Shopee.",
+    campaignChips: ["4 modelos", "Mini jogos", "Vira chaveiro"],
+    campaignCta: "Ver o Beep Boop",
     guides: "Seleções",
     guidesNav: "Guias",
     categories: "Categorias",
@@ -110,6 +120,11 @@ export const dict: Record<Market, Dict> = {
     heroTitle: "The best finds on the internet",
     heroSub: "Hand-picked products from Amazon and eBay. You buy directly from the store.",
     heroCta: "See the collection",
+    heroFeaturedBadge: "Now in Brazil",
+    campaignTitle: "Beep Boop, the virtual pet that goes with you",
+    campaignSub: "Care for it, play and have fun with mini games, sounds and animations. Comes with a chain to use as a keychain.",
+    campaignChips: ["4 models", "Mini games", "Keychain"],
+    campaignCta: "See Beep Boop",
     guides: "Collections",
     guidesNav: "Guides",
     categories: "Categories",

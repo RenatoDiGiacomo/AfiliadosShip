@@ -167,6 +167,7 @@ e crescer via SEO orgânico. Recebimento dos afiliados US em dólar (Nomad).
 - Não adicionar dependências pesadas sem necessidade (site precisa ser rápido).
 ## SEO e divulgação (docs/)
 - `docs/search-console.md`, `docs/cronograma-30-dias.md`, `docs/pinterest-guia.md` (e `.pdf`).
+- Vídeos curtos (TikTok/Shorts/Reels): ficam fora do repo, em `Documents/AfiliadosShip Docs/VideosShorts/` (plano em `videos-plano.md`; uma pasta por produto).
 - Páginas legais: `/us/privacy`, `/us/terms` (rewrite de `/us/privacidade` e `/us/termos`); `/br/privacidade`, `/br/termos`. Use `legalPath()` de `src/lib/paths.ts`.
 - Open Graph: `opengraph-image.tsx` (home, produto, guia) gera cartão 1000x1500 só com texto (next/og). Produto e guia usam `og:type=article` (Rich Pins de artigo; Rich Pin de produto exigiria preço).
 - hreflang só entre mercados com produtos, com `x-default` → /us. `robots.ts` bloqueia `/go/` e `/busca`.
