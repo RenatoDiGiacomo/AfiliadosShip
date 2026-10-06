@@ -20,12 +20,12 @@ export async function GuideCard({ guide }: { guide: Guide }) {
     >
       <div className="grid grid-cols-4 gap-px bg-slate-200">
         {products.map((p, i) => (
-          <div key={p.id} className="aspect-square bg-slate-50">
+          <div key={p.id} className="relative aspect-square overflow-hidden bg-slate-50">
             <ProductImage
               src={media[i].images[0]}
               alt={p.title}
               fallback={placeholderFor(p)}
-              className="h-full w-full object-contain p-1.5"
+              className="absolute inset-0 h-full w-full object-contain p-1.5"
             />
           </div>
         ))}

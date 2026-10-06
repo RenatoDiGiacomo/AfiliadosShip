@@ -28,7 +28,7 @@ export async function ProductRow({ product, rank }: { product: Product; rank: nu
           src={images[0]}
           alt={product.title}
           fallback={placeholderFor(product)}
-          className="h-full w-full object-contain p-3"
+          className="absolute inset-0 h-full w-full object-contain p-3"
         />
       </Link>
       <div className="flex flex-1 flex-col">

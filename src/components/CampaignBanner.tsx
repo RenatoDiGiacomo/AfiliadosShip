@@ -32,13 +32,13 @@ export async function CampaignBanner({
           <Link
             href={href}
             aria-label={product.title}
-            className="block h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-white shadow-lg sm:h-28 sm:w-28"
+            className="relative block h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-white shadow-lg sm:h-28 sm:w-28"
           >
             <ProductImage
               src={media.images[0]}
               alt={product.title}
               fallback={placeholderFor(product)}
-              className="h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </Link>
           <div className="min-w-0 flex-1">
@@ -94,13 +94,13 @@ export async function CampaignBanner({
         <Link
           href={href}
           aria-label={product.title}
-          className="mx-auto block aspect-square w-full max-w-sm rotate-2 overflow-hidden rounded-3xl bg-white shadow-2xl transition hover:rotate-0"
+          className="relative mx-auto block aspect-square w-full max-w-sm rotate-2 overflow-hidden rounded-3xl bg-white shadow-2xl transition hover:rotate-0"
         >
           <ProductImage
             src={media.images[0]}
             alt={product.title}
             fallback={placeholderFor(product)}
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </Link>
       </div>

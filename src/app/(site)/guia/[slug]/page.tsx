@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { ProductCard } from "@/components/ProductCard";
 import { ProductRow } from "@/components/ProductRow";
 import { SITE_URL } from "@/data/markets";
 import { getGuide, getGuideProducts, getGuides } from "@/lib/data";
@@ -75,11 +76,19 @@ export default async function GuidePage({ params }: { params: Params }) {
         <p className="mt-2 text-xs text-[var(--fg-soft)]">{t.disclosure}</p>
         {t.amazonNotice && products.some((p) => p.platform === "amazon") && <p className="text-xs text-[var(--fg-soft)]">{t.amazonNotice}</p>}
       </header>
-      <div className="space-y-4">
-        {products.map((p, i) => (
-          <ProductRow key={p.id} product={p} rank={i + 1} />
-        ))}
-      </div>
+      {guide.layout === "grid" ? (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {products.map((p, i) => (
+            <ProductRow key={p.id} product={p} rank={i + 1} />
+          ))}
+        </div>
+      )}
     </article>
   );
 }

@@ -1,6 +1,6 @@
 /**
  * Banners de campanha da home (só Brasil).
- * - `BANNER_PRINCIPAL`: banner grande, no topo (acima do hero). Troque o `slug` (do CSV) e os textos.
+ * - Hero do topo: `HERO_ESPECIAL` (mosaico com os produtos de um guia). Sem produtos no guia = hero padrão.
  * - `BANNER_COMPACTO`: banner pequeno, mais abaixo na página.
  * Slug inexistente no catálogo = o banner some.
  */
@@ -21,18 +21,6 @@ export type Campaign = {
   accentText: string;
 };
 
-export const BANNER_PRINCIPAL: Campaign = {
-  slug: "squishy-glitter-grande",
-  badge: "Novo no Mercado Livre",
-  title: "Squishy grande com glitter para apertar e relaxar",
-  sub: "Bola macia e sensorial, com brilho por todo lado. A cor vem aleatória. Veja o preço e o prazo atuais no Mercado Livre.",
-  chips: ["Tamanho grande", "Macio e sensorial", "+500 vendidos"],
-  cta: "Ver o Squishy",
-  gradient: "from-pink-500 via-rose-500 to-orange-400",
-  accent: "#FFE14D",
-  accentText: "#4a1030",
-};
-
 export const BANNER_COMPACTO: Campaign = {
   slug: "beep-boop-bichinho-virtual",
   href: "/guia/beep-boop",
@@ -44,4 +32,14 @@ export const BANNER_COMPACTO: Campaign = {
   gradient: "from-fuchsia-600 via-violet-600 to-blue-600",
   accent: "#FFE14D",
   accentText: "#2b1055",
+};
+
+/** Hero do topo: campanha sazonal. Os produtos são os que têm este guia no CSV (coluna `guias`). */
+export const HERO_ESPECIAL = {
+  guide: "dia-das-criancas",
+  badge: "Especial Dia das Crianças",
+  title: "Dia das Crianças: brinquedos em alta",
+  sub: "Uma seleção do Mercado Livre para presentear, com pontos positivos e pontos de atenção de cada item.",
+  cta: "Ver o especial",
+  max: 9,
 };

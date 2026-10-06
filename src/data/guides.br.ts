@@ -10,6 +10,15 @@ export const guidesBR: Guide[] = [
     updatedAt: "2026-09-30",
   },
   {
+    slug: "dia-das-criancas",
+    market: "br",
+    title: "Especial Dia das Crianças",
+    description: "Brinquedos em alta no Mercado Livre para presentear no Dia das Crianças.",
+    intro: "Uma seleção de brinquedos em alta para o Dia das Crianças, com pontos positivos e pontos de atenção de cada um. Confira idade indicada e o que acompanha em cada anúncio.",
+    updatedAt: "2026-10-06",
+    layout: "grid",
+  },
+  {
     slug: "beep-boop",
     market: "br",
     title: "Coleção Beep Boop",

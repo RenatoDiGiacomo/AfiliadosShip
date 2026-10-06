@@ -23,7 +23,7 @@ export async function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg">
-      <Link href={href} className="relative block aspect-square bg-slate-50" aria-label={product.title}>
+      <Link href={href} className="relative block aspect-square overflow-hidden bg-slate-50" aria-label={product.title}>
         <span className="absolute left-2 top-2 z-10 inline-flex items-center gap-1 rounded-full bg-white/90 px-2 py-0.5 text-[11px] font-semibold text-[var(--fg-muted)] shadow">
           <PlatformLogo platform={product.platform} size={14} />
           {PLATFORM_LABEL[product.platform]}
@@ -32,7 +32,7 @@ export async function ProductCard({ product }: { product: Product }) {
           src={images[0]}
           alt={product.title}
           fallback={placeholderFor(product)}
-          className="h-full w-full object-contain p-3 transition group-hover:scale-105"
+          className="absolute inset-0 h-full w-full object-contain p-3 transition group-hover:scale-105"
         />
       </Link>
       <div className="flex flex-1 flex-col p-4">

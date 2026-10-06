@@ -42,4 +42,6 @@ export interface Guide {
   description: string;
   intro: string;
   updatedAt: string;
+  /** "grid" = vitrine em grade (3 por linha); padrão = lista com análise. */
+  layout?: "list" | "grid";
 }

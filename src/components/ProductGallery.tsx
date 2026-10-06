@@ -24,8 +24,8 @@ export function ProductGallery({ images, alt, fallback }: { images: string[]; al
           ))}
         </div>
       )}
-      <div className="flex aspect-square flex-1 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white">
-        <ProductImage src={images[active]} alt={alt} fallback={fallback} className="h-full w-full object-contain" />
+      <div className="relative aspect-square flex-1 overflow-hidden rounded-xl border border-slate-200 bg-white">
+        <ProductImage src={images[active]} alt={alt} fallback={fallback} className="absolute inset-0 h-full w-full object-contain" />
       </div>
     </div>
   );

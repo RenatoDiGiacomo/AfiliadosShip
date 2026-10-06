@@ -7,7 +7,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { SelectionCarousel } from "@/components/SelectionCarousel";
 import { SectionTitle } from "@/components/SectionTitle";
 import { TrustStrip } from "@/components/TrustStrip";
-import { BANNER_COMPACTO, BANNER_PRINCIPAL } from "@/data/featured";
+import { BANNER_COMPACTO } from "@/data/featured";
 import { MARKETS, PLATFORM_LABEL } from "@/data/markets";
 import { getCategories, getGuides, getProducts } from "@/lib/data";
 import { dict } from "@/lib/i18n";
@@ -42,7 +42,6 @@ export default async function MarketHome() {
 
   return (
     <div className="space-y-12">
-      <CampaignBanner market={market} campaign={BANNER_PRINCIPAL} />
       <HeroBanner market={market} />
 
       {market !== "br" && getCategories(market).length > 0 && (

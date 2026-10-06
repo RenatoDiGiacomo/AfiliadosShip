@@ -10,3 +10,7 @@ next-env.d.ts
 catalog/feeds/
 catalog/*feed*
 *.feed.csv
+
+# Arquivos temporarios
+_to_delete/
+.tmp-*

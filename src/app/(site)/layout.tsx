@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MARKETS, SITE_URL } from "@/data/markets";
-import { getCategories } from "@/lib/data";
+import { FloatingMenu, type MenuLink } from "@/components/FloatingMenu";
+import { HERO_ESPECIAL } from "@/data/featured";
+import { getCategories, getGuides } from "@/lib/data";
 import { dict } from "@/lib/i18n";
 import { getMarket } from "@/lib/market";
 import { legalPath } from "@/lib/paths";
@@ -64,6 +66,15 @@ export default async function MarketLayout({
   const t = dict[market];
   const categories = getCategories(market);
   const banner = BANNER[market];
+  const guides = getGuides(market);
+  const special = guides.find((g) => g.slug === HERO_ESPECIAL.guide);
+  const menuLinks: MenuLink[] = [
+    { href: "/", label: t.home, emoji: "🏠" },
+    ...(special ? [{ href: `/guia/${special.slug}`, label: special.title, emoji: "🎉" }] : []),
+    { href: "/achados", label: t.allFinds, emoji: "🛍️" },
+    ...guides.filter((g) => g.slug !== special?.slug).map((g) => ({ href: `/guia/${g.slug}`, label: g.title, emoji: "✨" })),
+    ...categories.map((c) => ({ href: `/categoria/${c.id}`, label: c.name })),
+  ];
 
   return (
     <html lang={MARKETS[market].lang}>
@@ -133,6 +144,11 @@ export default async function MarketLayout({
               <Link href="/achados" className="shrink-0 hover:text-[var(--logo)]">
                 {t.allFinds}
               </Link>
+              {special && (
+                <Link href={`/guia/${special.slug}`} className="shrink-0 font-bold text-[var(--logo)] hover:underline">
+                  🎉 {special.title}
+                </Link>
+              )}
               {categories.map((c) => (
                 <Link key={c.id} href={`/categoria/${c.id}`} className="shrink-0 hover:text-[var(--logo)]">
                   {c.name}
@@ -143,6 +159,8 @@ export default async function MarketLayout({
         </header>
 
         <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
+
+        <FloatingMenu links={menuLinks} searchPlaceholder={t.searchPlaceholder} youtube={YOUTUBE[market] ?? undefined} />
 
         <footer className="mt-12 border-t border-white/10 bg-[var(--brand-dark)] text-white">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3">
