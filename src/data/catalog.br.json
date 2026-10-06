@@ -590,5 +590,33 @@
     "guides": [
       "beep-boop"
     ]
+  },
+  {
+    "id": "br-squishy-glitter-grande",
+    "slug": "squishy-glitter-grande",
+    "market": "br",
+    "platform": "mercadolivre",
+    "title": "Bola Squishy Grande Com Glitter Brinquedo Macio Sensorial",
+    "summary": "Bola squishy grande com glitter, macia e sensorial, para apertar e relaxar. Tem nota 4,7 e mais de 500 vendas no Mercado Livre, e a cor vem aleatória.",
+    "pros": [
+      "Squishy grande, macio e com glitter",
+      "Mais de 500 vendidos, nota 4,7 em 22 avaliações",
+      "Devolução grátis em até 30 dias, conforme o anúncio"
+    ],
+    "cons": [
+      "A cor vem aleatória, então não dá para escolher",
+      "O anúncio é de 1 unidade, então confira a quantidade",
+      "Preço e prazo de entrega mudam, então veja o valor atual no Mercado Livre"
+    ],
+    "currency": "BRL",
+    "productUrl": "https://www.mercadolivre.com.br/bola-squishy-grande-com-glitter-brinquedo-macio-sensorial/up/MLBU5252657037",
+    "category": "Brinquedos",
+    "categoryId": "brinquedos",
+    "updatedAt": "2026-10-06",
+    "affiliateUrl": "https://meli.la/1FmEveF",
+    "image": "/produtos/squishy-glitter.webp",
+    "guides": [
+      "achados-da-semana"
+    ]
   }
 ]

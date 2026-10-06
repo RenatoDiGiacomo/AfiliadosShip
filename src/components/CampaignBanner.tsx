@@ -1,35 +1,83 @@
 import Link from "next/link";
-import { CAMPAIGN_PRODUCT_SLUG } from "@/data/featured";
+import type { Campaign } from "@/data/featured";
 import type { Market } from "@/data/types";
 import { getProduct } from "@/lib/data";
-import { dict } from "@/lib/i18n";
 import { getProductMedia } from "@/lib/media";
 import { placeholderFor } from "@/lib/placeholder";
 import { ProductImage } from "./ProductImage";
 
-/** Banner grande de campanha, acima do hero. Troque o produto em `src/data/featured.ts`. */
-export async function CampaignBanner({ market }: { market: Market }) {
-  const product = getProduct(market, CAMPAIGN_PRODUCT_SLUG);
+/** Banner de campanha. `compact` é a versão pequena (faixa horizontal). Configuração em `src/data/featured.ts`. */
+export async function CampaignBanner({
+  market,
+  campaign,
+  compact = false,
+}: {
+  market: Market;
+  campaign: Campaign;
+  compact?: boolean;
+}) {
+  const product = getProduct(market, campaign.slug);
   if (!product) return null;
-  const t = dict[market];
   const media = await getProductMedia(product);
-  const href = `/produto/${product.slug}`;
+  const href = campaign.href ?? `/produto/${product.slug}`;
+  const accent = { backgroundColor: campaign.accent, color: campaign.accentText };
+
+  if (compact) {
+    return (
+      <section
+        aria-label={campaign.title}
+        className={`overflow-hidden rounded-2xl bg-gradient-to-r ${campaign.gradient} text-white shadow-md`}
+      >
+        <div className="flex items-center gap-4 p-4 sm:gap-6 sm:p-5">
+          <Link
+            href={href}
+            aria-label={product.title}
+            className="block h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-white shadow-lg sm:h-28 sm:w-28"
+          >
+            <ProductImage
+              src={media.images[0]}
+              alt={product.title}
+              fallback={placeholderFor(product)}
+              className="h-full w-full object-cover"
+            />
+          </Link>
+          <div className="min-w-0 flex-1">
+            <span className="inline-block rounded-full px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider" style={accent}>
+              {campaign.badge}
+            </span>
+            <h2 className="mt-1.5 text-lg font-black leading-tight sm:text-2xl">{campaign.title}</h2>
+            <p className="mt-1 hidden text-sm text-white/90 sm:block">{campaign.sub}</p>
+            <Link
+              href={href}
+              className="mt-2 inline-block rounded-full px-5 py-2 text-sm font-extrabold shadow transition hover:scale-105"
+              style={accent}
+            >
+              {campaign.cta}
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
-      aria-label={product.title}
-      className="overflow-hidden rounded-3xl bg-gradient-to-br from-fuchsia-600 via-violet-600 to-blue-600 text-white shadow-xl"
+      aria-label={campaign.title}
+      className={`overflow-hidden rounded-3xl bg-gradient-to-br ${campaign.gradient} text-white shadow-xl`}
     >
       <div className="grid items-center gap-6 p-6 sm:p-10 md:grid-cols-[1.15fr_0.85fr]">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#FFE14D] px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-[#2b1055] shadow sm:text-sm">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-fuchsia-600" aria-hidden="true" />
-            {t.heroFeaturedBadge}
+          <span
+            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider shadow sm:text-sm"
+            style={accent}
+          >
+            <span className="h-2 w-2 animate-pulse rounded-full bg-current" aria-hidden="true" />
+            {campaign.badge}
           </span>
-          <h2 className="mt-4 text-4xl font-black leading-[1.05] sm:text-6xl">{t.campaignTitle}</h2>
-          <p className="mt-4 max-w-lg text-base text-white/90 sm:text-lg">{t.campaignSub}</p>
+          <h2 className="mt-4 text-4xl font-black leading-[1.05] sm:text-6xl">{campaign.title}</h2>
+          <p className="mt-4 max-w-lg text-base text-white/90 sm:text-lg">{campaign.sub}</p>
           <ul className="mt-4 flex flex-wrap gap-2">
-            {t.campaignChips.map((chip) => (
+            {campaign.chips.map((chip) => (
               <li key={chip} className="rounded-full bg-white/20 px-3 py-1 text-sm font-semibold">
                 {chip}
               </li>
@@ -37,9 +85,10 @@ export async function CampaignBanner({ market }: { market: Market }) {
           </ul>
           <Link
             href={href}
-            className="mt-6 inline-block rounded-full bg-[#FFE14D] px-8 py-4 text-base font-extrabold text-[#2b1055] shadow-lg transition hover:scale-105"
+            className="mt-6 inline-block rounded-full px-8 py-4 text-base font-extrabold shadow-lg transition hover:scale-105"
+            style={accent}
           >
-            {t.campaignCta}
+            {campaign.cta}
           </Link>
         </div>
         <Link
