@@ -187,3 +187,6 @@ e crescer via SEO orgânico. Recebimento dos afiliados US em dólar (Nomad).
 - `/achados` lista todos os produtos do mais novo para o mais antigo (o último do CSV vem primeiro). É o link único do perfil do canal.
 - Os dados dos EUA (`catalog/us.csv`, `products.us.ts`) continuam no repositório, mas não são mais servidos.
 - Se um dia voltar a ter vários mercados, recriar o segmento `[market]` e o middleware (ver histórico do git).
+
+## Rastreamento de cliques (2026-10-06)
+- `/go/` registra clique (log da Vercel) e envia evento `affiliate_click` ao GA4 via Measurement Protocol (`GA_MEASUREMENT_ID`, `GA_API_SECRET`; opcional). Origem vem das UTMs guardadas em cookie `attr` (`UtmCapture`, `lib/tracking.ts`). Passo a passo e modelos de link: `docs/rastreamento-cliques.md`.

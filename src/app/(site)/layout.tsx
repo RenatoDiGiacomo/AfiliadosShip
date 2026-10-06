@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MARKETS, SITE_URL } from "@/data/markets";
 import { FloatingMenu, type MenuLink } from "@/components/FloatingMenu";
+import { UtmCapture } from "@/components/UtmCapture";
 import { HERO_ESPECIAL } from "@/data/featured";
 import { getCategories, getGuides } from "@/lib/data";
 import { dict } from "@/lib/i18n";
@@ -94,6 +95,7 @@ export default async function MarketLayout({
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+        <UtmCapture />
         <div className="bg-[var(--brand-dark)] px-4 py-1.5 text-center text-xs text-white">{t.announcement}</div>
 
         {banner && (
