@@ -6,7 +6,7 @@ import { dict } from "@/lib/i18n";
 /** Open Graph de página de conteúdo. type "article" permite Article Rich Pins no Pinterest. */
 export const pageOpenGraph = (
   market: Market,
-  o: { title: string; description: string; path: string },
+  o: { title: string; description: string; path: string; images?: string[] },
 ): Metadata["openGraph"] => ({
   type: "article",
   title: o.title,
@@ -14,4 +14,5 @@ export const pageOpenGraph = (
   url: o.path,
   siteName: dict[market].siteName,
   locale: MARKETS[market].lang.replace("-", "_"),
+  ...(o.images?.length ? { images: o.images.map((url) => ({ url, alt: o.title })) } : {}),
 });

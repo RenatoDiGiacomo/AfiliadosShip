@@ -26,11 +26,20 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { slug } = await params;
   const product = getProduct(market, slug);
   if (!product) return {};
+  // Prévia (WhatsApp, Pinterest, etc.): a foto do próprio produto, em endereço absoluto.
+  const { images, hasReal } = await getProductMedia(product);
+  const photo = hasReal && images[0] ? (images[0].startsWith("/") ? `${SITE_URL}${images[0]}` : images[0]) : undefined;
   return {
     title: product.title,
     description: product.summary,
     alternates: { canonical: `/produto/${slug}` },
-    openGraph: pageOpenGraph(market, { title: product.title, description: product.summary, path: `/produto/${slug}` }),
+    openGraph: pageOpenGraph(market, {
+      title: product.title,
+      description: product.summary,
+      path: `/produto/${slug}`,
+      images: photo ? [photo] : undefined,
+    }),
+    twitter: { card: "summary_large_image", title: product.title, description: product.summary, ...(photo ? { images: [photo] } : {}) },
   };
 }
 
